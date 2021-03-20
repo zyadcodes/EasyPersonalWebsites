@@ -9,6 +9,8 @@ import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 import MyButton from "../../components/MyButton/MyButton";
 import FadeIn from "react-fade-in";
+import Question from "./Question";
+import QuestionsArray from "../../config/QuestionsArray";
 
 // Creates and exports the functional component
 const WebsiteCreator = () => {
@@ -17,6 +19,7 @@ const WebsiteCreator = () => {
   const [isLogoTextShowing, setIsLogoTextShowing] = useState(true);
   const [isHiScreenShowing, setIsHiScreenShowing] = useState(false);
   const [isHiDivShowing, setIsHiDivShowing] = useState(true);
+  const [questionIndexSelected, setQuestionIndexSelected] = useState(0);
 
   // The useEffect method will start the animation for the logo to disappear and transition up
   useEffect(() => {
@@ -91,7 +94,7 @@ const WebsiteCreator = () => {
                 isDarkMode={false}
                 onClick={async () => {
                   setIsHiDivShowing(false);
-                  await sleep(500);
+                  await sleep(1000);
                   setIsHiScreenShowing(false);
                 }}
               />
@@ -101,7 +104,21 @@ const WebsiteCreator = () => {
       </FadeIn>
     );
   } else {
-    return <div>Hello</div>;
+    return QuestionsArray.map((eachQuestion, index) => (
+      <FadeIn visible={questionIndexSelected === index}>
+        <Question
+          questionTitle={eachQuestion.questionTitle}
+          questionSubtitle={eachQuestion.questionSubtitle}
+          onNextClick={async () => {
+            const currentIndexSelected = questionIndexSelected;
+            setQuestionIndexSelected(-1);
+            await sleep(1000);
+            setQuestionIndexSelected(currentIndexSelected + 1);
+          }}
+        />
+        
+      </FadeIn>
+    ));
   }
 };
 
