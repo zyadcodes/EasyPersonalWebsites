@@ -1,0 +1,76 @@
+/* This is going to be the CSS file that exports the font size for the entire web app
+/* The media query for mobile devices */
+@media (min-width: 1px) {
+    .largestText { /* In the design, this is all the text "60" */
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .largerText { /* In the design, this is all the text "55" */
+        font-size: 35px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .largeText { /* In the design, this is all the text "50" */
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .mediumText { /* In the design, this is all the text "40" */
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .smallText { /* In the design, this is all the text "30" */
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .tinyText { /* In the design, this is all the text "20" */
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .tiniestText { /* In the design, this is all the text "15" */
+        font-size: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .blue {
+        color: #0E8AFC;
+    }
+    .black {
+        color: #000000;
+    }
+    .white {
+        color: #FFFFFF
+    }
+    .bold {
+        font-weight: bold;
+    }
+}
+
+/* The media query for big devices like laptops and desktops */
+@media (min-width: 769px) {
+    .largestText { /* In the design, this is all the text "60" */
+        font-size: 60px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .largerText { /* In the design, this is all the text "55" */
+        font-size: 55px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .largeText { /* In the design, this is all the text "50" */
+        font-size: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .mediumText { /* In the design, this is all the text "40" */
+        font-size: 40px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .smallText { /* In the design, this is all the text "30" */
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .tinyText { /* In the design, this is all the text "20" */
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .tiniestText { /* In the design, this is all the text "15" */
+        font-size: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}

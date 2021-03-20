@@ -1,14 +1,7 @@
 // This is the main app file that is launched when the user opens the web app
 import React from "react";
 import firebase from "firebase";
-import {loadStripe} from '@stripe/stripe-js';
-import {
-  CardElement,
-  Elements,
-  useStripe,
-  useElements,
-} from '@stripe/react-stripe-js';
-
+import WebsiteCreator from './screens/WebsiteCreator/WebsiteCreator';
 
 // Initializes the web app's connection to Firebase
 firebase.initializeApp({
@@ -22,36 +15,11 @@ firebase.initializeApp({
 });
 firebase.analytics();
 
-const CheckoutForm = () => {
-  const stripe = useStripe();
-  const elements = useElements();
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
-      type: 'card',
-      card: elements.getElement(CardElement),
-    });
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <CardElement />
-      <button type="submit" disabled={!stripe}>
-        Pay
-      </button>
-    </form>
-  );
-};
-
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
-
 // Declares the app
-const App = () => (
-  <Elements stripe={stripePromise}>
-    <CheckoutForm />
-  </Elements>
-);
-
+const App = () => {
+  return (
+    <WebsiteCreator />
+  )
+}
 // Exports the app
 export default App;

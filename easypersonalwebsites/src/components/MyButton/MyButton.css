@@ -1,0 +1,54 @@
+/* This is going to be the css for the MyButton component */
+
+/* The media query for mobile devices */
+@media (min-width: 1px) {
+    .myButtonContainer {
+        min-width: 20px;
+        min-height: 40px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #0E8AFC;
+        border-radius: 10px;
+        border-width: 0;
+        transition: 0.25s;
+        cursor: pointer;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .myButtonContainer:hover {
+        transform: scale(1.25);
+    }
+    .dark {
+        background-color: #7683CC;
+    }
+  }
+  
+  /* The media query for big devices like laptops and desktops */
+  @media (min-width: 769px) {
+    .myButtonContainer {
+        min-width: 50px;
+        min-height: 60px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #0E8AFC;
+        border-radius: 20px;
+        border-width: 0;
+        transition: 0.25s;
+        cursor: pointer;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+  
