@@ -20,13 +20,21 @@
     align-items: center;
     text-align: center;
   }
-  .visible {
+  .visibleSlow {
     opacity: 1;
     transition: opacity 1s 1s;
   }
-  .notVisible {
+  .notVisibleSlow {
     opacity: 0;
     transition: opacity 1s 1s;
+  }
+  .visibleQuick {
+    opacity: 1;
+    transition: opacity 0.15s 0.15s;
+  }
+  .notVisibleQuick {
+    opacity: 0;
+    transition: opacity 0.15s 0.15s;
   }
   .hiScreenContainer {
     text-align: center;
