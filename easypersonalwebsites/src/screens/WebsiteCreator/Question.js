@@ -23,6 +23,11 @@ const Question = ({
             onInputEntered(QuestionsArray[currentIndex].objectName, textTyped);
           }, currentUserInputObj[QuestionsArray[currentIndex].objectName])
         : null}
+        {QuestionsArray[currentIndex].questionImagesInput
+        ? QuestionsArray[currentIndex].questionImagesInput((imagesSelected) => {
+           
+          }, currentUserInputObj[QuestionsArray[currentIndex].objectName])
+        : null}
       <MyButton
         text={QuestionsArray[currentIndex].buttonText ?  QuestionsArray[currentIndex].buttonText : "Next"}
         isDarkMode={false}

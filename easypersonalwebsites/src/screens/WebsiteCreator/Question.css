@@ -22,7 +22,7 @@
     width: 40vw;
     border-width: 0px;
     border-bottom-width: 2.5px;
-    border-bottom-color: #BCBABA;
+    border-bottom-color: #bcbaba;
     outline: none;
   }
   .questionTextInputWide {
@@ -36,6 +36,62 @@
   }
   .questionSpacer {
     height: 3vh;
+  }
+  .profileImagesContainer {
+    display: flex;
+    flex-direction: row;
+    width: 35vw;
+    margin-top: 5vh;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .profileImageUpload {
+    width: 15vw;
+    height: 15vw;
+    background-color: #0e8afc;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .imageOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15vw;
+    width: 13vw;
+    border-radius: 15px;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: #0e8afc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1vw;
+    padding-left: 1vw;
+  }
+  .profileImageUpload:hover .imageOverlay {
+    opacity: 1;
+  }
+  .fileUploadInput {
+    width: 15vw;
+    height: 15vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .minText {
+    margin-top: 3vh;
+    margin-bottom: 7vh;
+    align-self: center;
+    text-align: center;
   }
 }
 
@@ -51,7 +107,7 @@
     width: 20vw;
     border-width: 0px;
     border-bottom-width: 2.5px;
-    border-bottom-color: #BCBABA;
+    border-bottom-color: #bcbaba;
     outline: none;
   }
   .questionTextInputWide {

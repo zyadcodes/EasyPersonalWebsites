@@ -2,6 +2,9 @@
 import React from "react";
 import "./fontStyles.css";
 import "../screens/WebsiteCreator/Question.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+const { promisify } = require("util");
+const sizeOf = promisify(require("image-size"));
 
 export default [
   {
@@ -143,6 +146,51 @@ export default [
     ),
     questionSubtitle: "Show people what you look like.",
     objectName: "profilePictures",
+    questionImagesInput: (inputFunc, inputValue) => (
+      <div>
+        <div className={"profileImagesContainer"}>
+          <div className={"profileImageUpload"}>
+            <div className={"imageOverlay smallText white bold"}>
+              Choose Image
+            </div>
+            <FontAwesomeIcon
+              icon={["fas", "user"]}
+              color={"#ffffff"}
+              size={"5x"}
+            />
+            <input
+              className={"fileUploadInput"}
+              type="file"
+              name="myImage"
+              accept="image/*"
+              onChange={async (event) => {}}
+            />
+          </div>
+          <div className={"profileImageUpload"}>
+            <div className={"imageOverlay smallText white bold"}>
+              Choose Image
+            </div>
+            <FontAwesomeIcon
+              icon={["fas", "user"]}
+              color={"#ffffff"}
+              size={"5x"}
+            />
+            <input
+              className={"fileUploadInput"}
+              type="file"
+              name="myImage"
+              accept="image/*"
+              onChange={(event) => {
+                console.log(event.target.files);
+              }}
+            />
+          </div>
+        </div>
+        <div className={"minText tinyText gray"}>
+          Try to upload high quality images (At least 1024px x 1024px)
+        </div>
+      </div>
+    ),
   },
   {
     questionTitle: (

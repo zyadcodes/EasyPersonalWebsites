@@ -1,7 +1,10 @@
 // This is the main app file that is launched when the user opens the web app
 import React from "react";
 import firebase from "firebase";
-import WebsiteCreator from './screens/WebsiteCreator/WebsiteCreator';
+import WebsiteCreator from "./screens/WebsiteCreator/WebsiteCreator";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 
 // Initializes the web app's connection to Firebase
 firebase.initializeApp({
@@ -15,11 +18,12 @@ firebase.initializeApp({
 });
 firebase.analytics();
 
+// Loads all icons
+library.add(fab, fas);
+
 // Declares the app
 const App = () => {
-  return (
-    <WebsiteCreator />
-  )
-}
+  return <WebsiteCreator />;
+};
 // Exports the app
 export default App;
