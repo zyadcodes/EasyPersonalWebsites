@@ -20,6 +20,10 @@ const WebsiteCreator = () => {
   const [isHiScreenShowing, setIsHiScreenShowing] = useState(false);
   const [isHiDivShowing, setIsHiDivShowing] = useState(true);
   const [questionIndexSelected, setQuestionIndexSelected] = useState(0);
+  const [barIndexSelected, setBarIndexSelected] = useState(0);
+  const [isQuestionVisible, setIsQuestionVisible] = useState(true);
+  const [updateScreen, setUpdateScreen] = useState(false);
+  const [userInput, setUserInput] = useState({});
 
   // The useEffect method will start the animation for the logo to disappear and transition up
   useEffect(() => {
@@ -100,25 +104,75 @@ const WebsiteCreator = () => {
               />
             </div>
           </FadeIn>
+          <FadeIn delay={9300} className={"createdWebsiteMessage"}>
+            <div className={"tinyText gray"}>
+              If you’ve created a website with us and would like to edit or
+              remove your website, please reach out to us at
+              easypersonalwebsites@gmail.com.
+            </div>
+          </FadeIn>
         </div>
       </FadeIn>
     );
   } else {
-    return QuestionsArray.map((eachQuestion, index) => (
-      <FadeIn visible={questionIndexSelected === index}>
-        <Question
-          questionTitle={eachQuestion.questionTitle}
-          questionSubtitle={eachQuestion.questionSubtitle}
-          onNextClick={async () => {
-            const currentIndexSelected = questionIndexSelected;
-            setQuestionIndexSelected(-1);
-            await sleep(1000);
-            setQuestionIndexSelected(currentIndexSelected + 1);
+    console.log(userInput);
+    return (
+      <div className={"allQuestionsContainer"}>
+        <img
+          src={EPWLogo}
+          className={"smallLogo clickable"}
+          onClick={async () => {
+            // Navigates to the first step
+            if (questionIndexSelected !== 0) {
+              setIsQuestionVisible(false);
+              setBarIndexSelected(0);
+              await sleep(400);
+              setQuestionIndexSelected(0);
+              setIsQuestionVisible(true);
+            }
           }}
         />
-        
-      </FadeIn>
-    ));
+        <div className={"stepContainer"}>
+          {QuestionsArray.map((eachQuestion, index) => (
+            <div
+              onClick={async () => {
+                // Navigates the clicked step
+                if (barIndexSelected !== index) {
+                  setIsQuestionVisible(false);
+                  setBarIndexSelected(index);
+                  await sleep(400);
+                  setQuestionIndexSelected(index);
+                  setIsQuestionVisible(true);
+                }
+              }}
+              className={
+                barIndexSelected === index ? "step selected" : "step unselected"
+              }
+            />
+          ))}
+        </div>
+        <FadeIn visible={isQuestionVisible} transitionDuration={300}>
+          <Question
+            currentIndex={questionIndexSelected}
+            onInputEntered={(objectName, input) => {
+              const currentUserObject = userInput;
+              userInput[objectName] = input;
+              setUserInput(currentUserObject);
+              setUpdateScreen(!updateScreen);
+            }}
+            currentUserInputObj={userInput}
+            onNextClick={async () => {
+              // Navigates to the next step
+              setIsQuestionVisible(false);
+              setBarIndexSelected(questionIndexSelected + 1);
+              await sleep(400);
+              setQuestionIndexSelected(questionIndexSelected + 1);
+              setIsQuestionVisible(true);
+            }}
+          />
+        </FadeIn>
+      </div>
+    );
   }
 };
 

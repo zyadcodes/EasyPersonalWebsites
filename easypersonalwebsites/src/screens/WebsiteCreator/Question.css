@@ -1,17 +1,69 @@
 /* This is the CSS file for the Question component */
 @media (min-width: 1px) {
   .questionContainer {
-    position: absolute;
     display: flex;
-    width: 100vw;
-    height: 83vh;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    justify-content: space-between;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .subtitleContainer {
+    margin-top: 2.5vh;
+  }
+  .questionTextInputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+  }
+  .questionTextInput {
+    width: 40vw;
+    border-width: 0px;
+    border-bottom-width: 2.5px;
+    border-bottom-color: #BCBABA;
+    outline: none;
+  }
+  .questionTextInputWide {
+    width: 45vw;
+  }
+  .questionTextInputVeryWide {
+    width: 60vw;
+  }
+  .questionTextInputUltraWide {
+    width: 75vw;
+  }
+  .questionSpacer {
+    height: 3vh;
   }
 }
 
 /* The media query for big devices like laptops and desktops */
 @media (min-width: 769px) {
+  .questionTextInputContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+  }
+  .questionTextInput {
+    width: 20vw;
+    border-width: 0px;
+    border-bottom-width: 2.5px;
+    border-bottom-color: #BCBABA;
+    outline: none;
+  }
+  .questionTextInputWide {
+    width: 35vw;
+  }
+  .questionTextInputVeryWide {
+    width: 45vw;
+  }
+  .questionTextInputUltraWide {
+    width: 50vw;
+  }
+  .questionSpacer {
+    width: 1vw;
+  }
 }

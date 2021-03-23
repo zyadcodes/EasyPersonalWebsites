@@ -1,6 +1,7 @@
 // This is going to export the array of questions that will be used to build the user website
 import React from "react";
 import "./fontStyles.css";
+import "../screens/WebsiteCreator/Question.css";
 
 export default [
   {
@@ -10,6 +11,19 @@ export default [
       </div>
     ),
     questionSubtitle: "Help us get to know you.",
+    objectName: "firstName",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"mediumText black bold"}>My first name is </div>
+        <div className={"questionSpacer"} />
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"John..."}
+          className={"questionTextInput black mediumText"}
+        />
+      </div>
+    ),
   },
   {
     questionTitle: (
@@ -18,6 +32,21 @@ export default [
       </div>
     ),
     questionSubtitle: "Help us get to know you.",
+    objectName: "lastName",
+    questionTextInput: (inputFunc, inputValue) => {
+      return (
+        <div className={"questionTextInputContainer"}>
+          <div className={"mediumText black bold"}>My last name is </div>
+          <div className={"questionSpacer"} />
+          <input
+            onChange={(event) => inputFunc(event.target.value)}
+            value={inputValue ? inputValue : ""}
+            placeholder={"Smith..."}
+            className={"questionTextInput black mediumText"}
+          />
+        </div>
+      );
+    },
   },
   {
     questionTitle: (
@@ -26,6 +55,19 @@ export default [
       </div>
     ),
     questionSubtitle: "Tell us what you want people to know you do.",
+    objectName: "occupation",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"mediumText black bold"}>I </div>
+        <div className={"questionSpacer"} />
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"make websites..."}
+          className={"questionTextInput black mediumText questionTextInputWide"}
+        />
+      </div>
+    ),
   },
   {
     questionTitle: (
@@ -34,6 +76,19 @@ export default [
       </div>
     ),
     questionSubtitle: "Tell us what someone would say you are.",
+    objectName: "title",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"mediumText black bold"}>I am a(n) </div>
+        <div className={"questionSpacer"} />
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"influencer..."}
+          className={"questionTextInput black mediumText"}
+        />
+      </div>
+    ),
   },
   {
     questionTitle: (
@@ -41,7 +96,44 @@ export default [
         How would you describe <span className={"blue"}>what you do?</span>
       </div>
     ),
-    questionSubtitle: "Give us a brief description about what someone say you do.",
+    questionSubtitle:
+      "Give us a brief description about what someone say you do.",
+    objectName: "occupationDescription",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"questionSpacer"} />
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"What you do..."}
+          className={
+            "questionTextInput black mediumText questionTextInputUltraWide"
+          }
+        />
+      </div>
+    ),
+  },
+  {
+    questionTitle: (
+      <div className={"largerText black bold"}>
+        How would you <span className={"blue"}>describe yourself?</span>
+      </div>
+    ),
+    questionSubtitle: "Tell us a little about yourself.",
+    objectName: "aboutMe",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"questionSpacer"} />
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"About you..."}
+          className={
+            "questionTextInput black mediumText questionTextInputUltraWide"
+          }
+        />
+      </div>
+    ),
   },
   {
     questionTitle: (
@@ -50,6 +142,7 @@ export default [
       </div>
     ),
     questionSubtitle: "Show people what you look like.",
+    objectName: "profilePictures",
   },
   {
     questionTitle: (
@@ -58,6 +151,7 @@ export default [
       </div>
     ),
     questionSubtitle: "Show off your work to everyone.",
+    objectName: "workPictures",
   },
   {
     questionTitle: (
@@ -66,6 +160,7 @@ export default [
       </div>
     ),
     questionSubtitle: "Tell us whether you like the light or dark theme.",
+    objectName: "theme",
   },
   {
     questionTitle: (
@@ -74,6 +169,21 @@ export default [
       </div>
     ),
     questionSubtitle: "Tell us how people will contact you.",
+    objectName: "emailAddress",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"mediumText black bold"}>My email is </div>
+        <div className={"questionSpacer"} />
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"johnsmith@gmail.com..."}
+          className={
+            "questionTextInput black mediumText questionTextInputUltraWide"
+          }
+        />
+      </div>
+    ),
   },
   {
     questionTitle: (
@@ -82,6 +192,19 @@ export default [
       </div>
     ),
     questionSubtitle: "Tell us how people will contact you.",
+    objectName: "phoneNumber",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"mediumText black bold"}>My phone number is </div>
+        <div className={"questionSpacer"} />
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"(425) 111-1111..."}
+          className={"questionTextInput black mediumText questionTextInputWide"}
+        />
+      </div>
+    ),
   },
   {
     questionTitle: (
@@ -90,6 +213,7 @@ export default [
       </div>
     ),
     questionSubtitle: "Tell us how people can discover you.",
+    objectName: "socialMedias",
   },
   {
     questionTitle: (
@@ -98,5 +222,19 @@ export default [
       </div>
     ),
     questionSubtitle: "This is what people will type in to get to your site.",
+    objectName: "domainName",
+    questionTextInput: (inputFunc, inputValue) => (
+      <div className={"questionTextInputContainer"}>
+        <div className={"mediumText black bold"}>I want the domain </div>
+        <div className={"questionSpacer"}></div>
+        <input
+          onChange={(event) => inputFunc(event.target.value)}
+          value={inputValue ? inputValue : ""}
+          placeholder={"johnsmith.com..."}
+          className={"questionTextInput black mediumText questionTextInputWide"}
+        />
+      </div>
+    ),
+    buttonText: "Pay",
   },
 ];

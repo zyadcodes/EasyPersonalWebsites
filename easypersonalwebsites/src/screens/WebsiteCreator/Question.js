@@ -3,15 +3,28 @@ import React, { useState } from "react";
 import "./Question.css";
 import "../../config/fontStyles.css";
 import MyButton from "../../components/MyButton/MyButton";
+import QuestionsArray from "../../config/QuestionsArray";
 
 // Creates the component
-const Question = ({ questionTitle, questionSubtitle, onNextClick }) => {
+const Question = ({
+  currentIndex,
+  onNextClick,
+  onInputEntered,
+  currentUserInputObj,
+}) => {
   return (
     <div className={"questionContainer"}>
-      {questionTitle}
-      <div className={"black mediumText"}>{questionSubtitle}</div>
+      {QuestionsArray[currentIndex].questionTitle}
+      <div className={"black smallText subtitleContainer"}>
+        {QuestionsArray[currentIndex].questionSubtitle}
+      </div>
+      {QuestionsArray[currentIndex].questionTextInput
+        ? QuestionsArray[currentIndex].questionTextInput((textTyped) => {
+            onInputEntered(QuestionsArray[currentIndex].objectName, textTyped);
+          }, currentUserInputObj[QuestionsArray[currentIndex].objectName])
+        : null}
       <MyButton
-        text={"Next"}
+        text={QuestionsArray[currentIndex].buttonText ?  QuestionsArray[currentIndex].buttonText : "Next"}
         isDarkMode={false}
         onClick={() => {
           onNextClick();
