@@ -23,7 +23,8 @@ const WebsiteCreator = () => {
   const [barIndexSelected, setBarIndexSelected] = useState(0);
   const [isQuestionVisible, setIsQuestionVisible] = useState(true);
   const [updateScreen, setUpdateScreen] = useState(false);
-  const [userInput, setUserInput] = useState({});
+  const [userInput, setUserInput] = useState({ theme: "light" });
+
 
   // The useEffect method will start the animation for the logo to disappear and transition up
   useEffect(() => {
@@ -115,9 +116,8 @@ const WebsiteCreator = () => {
       </FadeIn>
     );
   } else {
-    console.log(userInput);
     return (
-      <div className={"allQuestionsContainer"}>
+      <div className={"allQuestionsContainer" + " " + userInput.theme}>
         <img
           src={EPWLogo}
           className={"smallLogo clickable"}
@@ -146,7 +146,7 @@ const WebsiteCreator = () => {
                 }
               }}
               className={
-                barIndexSelected === index ? "step selected" : "step unselected"
+                barIndexSelected === index ? "step selected bar" + userInput.theme : "step unselected bar" 
               }
             />
           ))}
@@ -156,7 +156,7 @@ const WebsiteCreator = () => {
             currentIndex={questionIndexSelected}
             onInputEntered={(objectName, input) => {
               const currentUserObject = userInput;
-              userInput[objectName] = input;
+              currentUserObject[objectName] = input;
               setUserInput(currentUserObject);
               setUpdateScreen(!updateScreen);
             }}

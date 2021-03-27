@@ -80,13 +80,30 @@
     width: 3.75vw;
     background-color: #b2b2b2;
   }
+  .bardark {
+    background-color: #64FFDA;
+    transition: 0.5s;
+  }
+  .barlight {
+    background-color: #0e8afc;
+    transition: 0.5s;
+  }
   .allQuestionsContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
   }
   .clickable {
     cursor: pointer;
+  }
+  .dark {
+    background-color: #0A1B2E;
+    transition: 0.5s;
+  }
+  .light {
+    background-color: #ffffff;
+    transition: 0.5s;
   }
 }
 
@@ -105,5 +122,13 @@
   .unselected {
     width: 2.5vw;
     background-color: #b2b2b2;
+  }
+  .bardark {
+    background-color: #64FFDA;
+    transition: 0.5s;
+  }
+  .barlight {
+    background-color: #0e8afc;
+    transition: 0.5s;
   }
 }

@@ -5,11 +5,15 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+  .questionTitleContainer {
     padding-left: 4vw;
     padding-right: 4vw;
   }
   .subtitleContainer {
     margin-top: 2.5vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
   }
   .questionTextInputContainer {
     display: flex;
@@ -24,6 +28,10 @@
     border-bottom-width: 2.5px;
     border-bottom-color: #bcbaba;
     outline: none;
+    transition: 0.25s;
+  }
+  .questionTextInputSmall {
+    width: 30vw;
   }
   .questionTextInputWide {
     width: 45vw;
@@ -37,13 +45,205 @@
   .questionSpacer {
     height: 3vh;
   }
-  .profileImagesContainer {
+  .doubleRowContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+  .profileImageUpload {
+    width: 30vw;
+    height: 30vw;
+    background-color: #0e8afc;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .imageOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30vw;
+    width: 28vw;
+    border-radius: 15px;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: #0e8afc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1vw;
+    padding-left: 1vw;
+  }
+  .profileImageUpload:hover .imageOverlay {
+    opacity: 1;
+  }
+  .fileUploadInput {
+    width: 30vw;
+    height: 30vw;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .minText {
+    margin-top: 3vh;
+    margin-bottom: 7vh;
+    align-self: center;
+    text-align: center;
+  }
+  .profileImagePreview {
+    width: 30vw;
+    height: 30vw;
+    border-radius: 15px;
+  }
+  .imageSpacer {
+    height: 20px;
+  }
+  .minCharactersContainer {
+    text-align: end;
+    align-self: flex-end;
+    margin-top: -18vh;
+    margin-bottom: 18vh;
+  }
+  .workRowContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .workInformationContainer {
     display: flex;
     flex-direction: row;
-    width: 35vw;
     margin-top: 5vh;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+  .workTitleDescriptionContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 15px;
+  }
+  .verticalSpacer {
+    height: 5vh;
+  }
+  .workMinCharacters {
+    text-align: end;
+    align-self: flex-end;
+    margin-top: 1vh;
+  }
+  .lightDarkPickerContainer {
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
+    width: 25vw;
+    padding-top: 1vh;
+    height: 38vh;
+    min-width: 300px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-style: solid;
+    border-width: 2.5px;
+    border-color: #bcbaba;
+    margin-bottom: 2vh;
+  }
+  .circlePickerOuter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vw;
+    width: 3vw;
+    border-radius: calc(1.5vw + 1.5px);
+    border-width: 2.5px;
+    background-color: white;
+    border-style: solid;
+    border-color: #bcbaba;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+  .blueBorder {
+    border-color: #0e8afc;
+    transition: 0.25s;
+  }
+  .circlePickerOuter:hover {
+    transform: scale(1.25);
+  }
+  .circlePickerInner {
+    height: 2.8vw;
+    width: 2.8vw;
+    border-radius: 1.4vw;
+    background-color: #0e8afc;
+    transition: 0.25s;
+  }
+  .themePickerScreenshot {
+    min-width: 300px;
+    width: 25vw;
+    height: 25vh;
+    border-bottom-left-radius: 7.5px;
+    border-bottom-right-radius: 7.5px;
+  }
+  .socialMediasContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 45vw;
+    justify-content: space-between;
+    margin-bottom: 4vh;
+  }
+  .socialMediasOuterContainer {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: center;
+    justify-content: space-evenly;
+  }
+  .domainStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -15vh;
+    margin-bottom: 3vh;
+  }
+}
+
+/* The media query for big devices like laptops and desktops */
+@media (min-width: 769px) {
+  .questionTextInputContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15vh;
+    margin-bottom: 20vh;
+  }
+  
+  .questionSpacer {
+    width: 1vw;
+  }
+  .doubleRowContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+  }
+  .imageSpacer {
+    width: 5vw;
   }
   .profileImageUpload {
     width: 15vw;
@@ -75,8 +275,10 @@
     padding-right: 1vw;
     padding-left: 1vw;
   }
-  .profileImageUpload:hover .imageOverlay {
-    opacity: 1;
+  .profileImagePreview {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 15px;
   }
   .fileUploadInput {
     width: 15vw;
@@ -87,28 +289,60 @@
     opacity: 0;
     cursor: pointer;
   }
-  .minText {
-    margin-top: 3vh;
-    margin-bottom: 7vh;
-    align-self: center;
-    text-align: center;
+  .lightTextInput {
+    background-color: #ffffff;
+    color: #000000
+  }
+  .lightTextInput:focus {
+    border-bottom-color: #0e8afc;
+  }
+  .darkTextInput {
+    background-color: #0A1B2E;
+    color: #64ffda
+  }
+  .darkTextInput:focus {
+    border-bottom-color: #64ffda;
   }
 }
 
-/* The media query for big devices like laptops and desktops */
-@media (min-width: 769px) {
-  .questionTextInputContainer {
+@media (min-width: 1050px) {
+  .socialMediasOuterContainer {
+    margin-top: 3vh;
     display: flex;
     flex-direction: row;
-    margin-top: 15vh;
-    margin-bottom: 20vh;
+    width: 70vw;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: center;
+    justify-content: space-evenly;
   }
+  .socialMediasContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 25vw;
+    justify-content: space-between;
+    margin-bottom: 4vh;
+  }
+  .workRowContainer {
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+  } 
   .questionTextInput {
     width: 20vw;
     border-width: 0px;
     border-bottom-width: 2.5px;
     border-bottom-color: #bcbaba;
     outline: none;
+  }
+  
+  .questionTextInputSmall {
+    width: 12vw;
+  }
+  .questionTextInputWide {
+    width: 35vw;
   }
   .questionTextInputWide {
     width: 35vw;
@@ -118,8 +352,5 @@
   }
   .questionTextInputUltraWide {
     width: 50vw;
-  }
-  .questionSpacer {
-    width: 1vw;
   }
 }

@@ -17,17 +17,19 @@
     background-color: #0e8afc;
     border-radius: 10px;
     border-width: 0;
-    transition: 0.25s;
+    transition: 0.5s;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     outline: none;
     z-index: 1;
+    margin-bottom: 5vh;
   }
   .myButtonContainer:hover {
     transform: scale(1.25);
   }
-  .dark {
+  .darkButton {
     background-color: #7683cc;
+    transition: 0.5s;
   }
 }
 
@@ -48,10 +50,15 @@
     background-color: #0e8afc;
     border-radius: 20px;
     border-width: 0;
-    transition: 0.25s;
+    transition: 0.5s;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     outline: none;
     z-index: 1;
+    margin-bottom: 5vh;
+  }
+  .darkButton {
+    background-color: #7683cc;
+    transition: 0.5s;
   }
 }

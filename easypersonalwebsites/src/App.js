@@ -1,5 +1,5 @@
 // This is the main app file that is launched when the user opens the web app
-import React from "react";
+import React, { useEffect } from "react";
 import firebase from "firebase";
 import WebsiteCreator from "./screens/WebsiteCreator/WebsiteCreator";
 import { library } from "@fortawesome/fontawesome-svg-core";

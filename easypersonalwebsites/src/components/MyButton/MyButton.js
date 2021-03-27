@@ -10,7 +10,7 @@ const MyButton = ({ text, onClick, isDarkMode }) => {
     <button
       className={
         isDarkMode
-          ? "myButtonContainer dark mediumText bold white"
+          ? "myButtonContainer darkButton mediumText bold white"
           : "myButtonContainer mediumText bold white"
       }
       onClick={() => onClick()}

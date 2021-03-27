@@ -3,185 +3,411 @@ import React from "react";
 import "./fontStyles.css";
 import "../screens/WebsiteCreator/Question.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const { promisify } = require("util");
-const sizeOf = promisify(require("image-size"));
+import ScreenshotDark from "../assets/ScreenshotDark.png";
+import ScreenshotLight from "../assets/ScreenshotLight.png";
 
 export default [
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What’s your <span className={"blue"}>first name?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What’s your{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          first name?
+        </span>
       </div>
     ),
-    questionSubtitle: "Help us get to know you.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Help us get to know you.
+      </div>
+    ),
     objectName: "firstName",
-    questionTextInput: (inputFunc, inputValue) => (
+    questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
-        <div className={"mediumText black bold"}>My first name is </div>
+        <div
+          className={
+            theme === "light"
+              ? "mediumText black bold"
+              : "mediumText lightPurple bold"
+          }
+        >
+          My first name is{" "}
+        </div>
         <div className={"questionSpacer"} />
         <input
           onChange={(event) => inputFunc(event.target.value)}
           value={inputValue ? inputValue : ""}
           placeholder={"John..."}
-          className={"questionTextInput black mediumText"}
+          className={
+            "black " + theme + "TextInput questionTextInput mediumText"
+          }
         />
       </div>
     ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What’s your <span className={"blue"}>last name?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What’s your{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          last name?
+        </span>
       </div>
     ),
-    questionSubtitle: "Help us get to know you.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Help us get to know you.
+      </div>
+    ),
     objectName: "lastName",
-    questionTextInput: (inputFunc, inputValue) => {
+    questionInput: (inputFunc, inputValue, theme) => {
       return (
         <div className={"questionTextInputContainer"}>
-          <div className={"mediumText black bold"}>My last name is </div>
+          <div
+            className={
+              theme === "light"
+                ? "mediumText black bold"
+                : "mediumText lightPurple bold"
+            }
+          >
+            My last name is{" "}
+          </div>
           <div className={"questionSpacer"} />
           <input
             onChange={(event) => inputFunc(event.target.value)}
             value={inputValue ? inputValue : ""}
             placeholder={"Smith..."}
-            className={"questionTextInput black mediumText"}
+            className={
+              "black " + theme + "TextInput questionTextInput mediumText"
+            }
           />
         </div>
       );
     },
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What do you <span className={"blue"}>do?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What do you{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>do?</span>
       </div>
     ),
-    questionSubtitle: "Tell us what you want people to know you do.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Tell us what you want people to know you do.
+      </div>
+    ),
     objectName: "occupation",
-    questionTextInput: (inputFunc, inputValue) => (
+    questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
-        <div className={"mediumText black bold"}>I </div>
+        <div
+          className={
+            theme === "light"
+              ? "mediumText black bold"
+              : "mediumText lightPurple bold"
+          }
+        >
+          I{" "}
+        </div>
         <div className={"questionSpacer"} />
         <input
           onChange={(event) => inputFunc(event.target.value)}
           value={inputValue ? inputValue : ""}
           placeholder={"make websites..."}
-          className={"questionTextInput black mediumText questionTextInputWide"}
+          className={
+            "black " +
+            theme +
+            "TextInput questionTextInput mediumText questionTextInputWide"
+          }
         />
       </div>
     ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What would you <span className={"blue"}>call yourself?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What would you{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          call yourself?
+        </span>
       </div>
     ),
-    questionSubtitle: "Tell us what someone would say you are.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Tell us what someone would say you are.
+      </div>
+    ),
     objectName: "title",
-    questionTextInput: (inputFunc, inputValue) => (
+    questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
-        <div className={"mediumText black bold"}>I am a(n) </div>
+        <div
+          className={
+            theme === "light"
+              ? "mediumText black bold"
+              : "mediumText lightPurple bold"
+          }
+        >
+          I am a(n){" "}
+        </div>
         <div className={"questionSpacer"} />
         <input
           onChange={(event) => inputFunc(event.target.value)}
           value={inputValue ? inputValue : ""}
           placeholder={"influencer..."}
-          className={"questionTextInput black mediumText"}
+          className={
+            "black " + theme + "TextInput questionTextInput mediumText"
+          }
         />
       </div>
     ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        How would you describe <span className={"blue"}>what you do?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        How would you describe{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          what you do?
+        </span>
       </div>
     ),
-    questionSubtitle:
-      "Give us a brief description about what someone say you do.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        {" "}
+        Give us a brief description about what someone say you do.
+      </div>
+    ),
     objectName: "occupationDescription",
-    questionTextInput: (inputFunc, inputValue) => (
-      <div className={"questionTextInputContainer"}>
-        <div className={"questionSpacer"} />
-        <input
-          onChange={(event) => inputFunc(event.target.value)}
-          value={inputValue ? inputValue : ""}
-          placeholder={"What you do..."}
-          className={
-            "questionTextInput black mediumText questionTextInputUltraWide"
-          }
-        />
-      </div>
-    ),
+    questionInput: (inputFunc, inputValue, theme) => {
+      return (
+        <div>
+          <div className={"questionTextInputContainer"}>
+            <div className={"questionSpacer"} />
+            <input
+              maxLength={180}
+              onChange={(event) => inputFunc(event.target.value)}
+              value={inputValue ? inputValue : ""}
+              placeholder={"What you do..."}
+              className={
+                "black " +
+                theme +
+                "TextInput questionTextInput mediumText questionTextInputUltraWide"
+              }
+            />
+          </div>
+          <div className={"minCharactersContainer tinyText gray"}>
+            {inputValue
+              ? inputValue.length <= 120
+                ? "Min characters: " + (120 - inputValue.length)
+                : "Max characters: " + (180 - inputValue.length)
+              : "Min characters: 120"}
+          </div>
+        </div>
+      );
+    },
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        How would you <span className={"blue"}>describe yourself?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        How would you{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          describe yourself?
+        </span>
       </div>
     ),
-    questionSubtitle: "Tell us a little about yourself.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Tell us a little about yourself.
+      </div>
+    ),
     objectName: "aboutMe",
-    questionTextInput: (inputFunc, inputValue) => (
-      <div className={"questionTextInputContainer"}>
-        <div className={"questionSpacer"} />
-        <input
-          onChange={(event) => inputFunc(event.target.value)}
-          value={inputValue ? inputValue : ""}
-          placeholder={"About you..."}
-          className={
-            "questionTextInput black mediumText questionTextInputUltraWide"
-          }
-        />
+    questionInput: (inputFunc, inputValue, theme) => (
+      <div>
+        <div className={"questionTextInputContainer"}>
+          <div className={"questionSpacer"} />
+          <input
+            maxLength={300}
+            onChange={(event) => inputFunc(event.target.value)}
+            value={inputValue ? inputValue : ""}
+            placeholder={"About you..."}
+            className={
+              "black " +
+              theme +
+              "TextInput questionTextInput mediumText questionTextInputUltraWide"
+            }
+          />
+        </div>
+        <div className={"minCharactersContainer tinyText gray"}>
+          {inputValue
+            ? inputValue.length <= 240
+              ? "Min characters: " + (240 - inputValue.length)
+              : "Max characters: " + (300 - inputValue.length)
+            : "Min characters: 240"}
+        </div>
       </div>
     ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What do you <span className={"blue"}>you look like?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What do you{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          you look like?
+        </span>
       </div>
     ),
-    questionSubtitle: "Show people what you look like.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Show people what you look like.
+      </div>
+    ),
     objectName: "profilePictures",
-    questionImagesInput: (inputFunc, inputValue) => (
+    questionInput: (inputFunc, inputValue, theme) => (
       <div>
-        <div className={"profileImagesContainer"}>
+        <div className={"doubleRowContainer"}>
           <div className={"profileImageUpload"}>
+            {inputValue && inputValue.profileImage1 ? (
+              <img
+                src={inputValue.profileImage1}
+                className={"profileImagePreview"}
+              />
+            ) : (
+              <div>
+                <FontAwesomeIcon
+                  icon={["fas", "user"]}
+                  color={"#ffffff"}
+                  size={"5x"}
+                />
+              </div>
+            )}
             <div className={"imageOverlay smallText white bold"}>
               Choose Image
             </div>
-            <FontAwesomeIcon
-              icon={["fas", "user"]}
-              color={"#ffffff"}
-              size={"5x"}
-            />
             <input
               className={"fileUploadInput"}
               type="file"
               name="myImage"
               accept="image/*"
-              onChange={async (event) => {}}
+              onChange={async (event) => {
+                inputFunc({
+                  profileImage1: URL.createObjectURL(event.target.files[0]),
+                  profileImage2: inputValue ? inputValue.profileImage2 : "",
+                });
+              }}
             />
           </div>
+          <div className={"imageSpacer"} />
           <div className={"profileImageUpload"}>
+            {inputValue && inputValue.profileImage2 ? (
+              <img
+                src={inputValue.profileImage2}
+                className={"profileImagePreview"}
+              />
+            ) : (
+              <div>
+                <FontAwesomeIcon
+                  icon={["fas", "user"]}
+                  color={"#ffffff"}
+                  size={"5x"}
+                />
+              </div>
+            )}
             <div className={"imageOverlay smallText white bold"}>
               Choose Image
             </div>
-            <FontAwesomeIcon
-              icon={["fas", "user"]}
-              color={"#ffffff"}
-              size={"5x"}
-            />
             <input
               className={"fileUploadInput"}
               type="file"
               name="myImage"
               accept="image/*"
               onChange={(event) => {
-                console.log(event.target.files);
+                inputFunc({
+                  profileImage1: inputValue ? inputValue.profileImage1 : "",
+                  profileImage2: URL.createObjectURL(event.target.files[0]),
+                });
               }}
             />
           </div>
@@ -193,96 +419,779 @@ export default [
     ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What does your <span className={"blue"}>work look like?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What does your{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          work look like?
+        </span>
       </div>
     ),
-    questionSubtitle: "Show off your work to everyone.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Show off your work to everyone.
+      </div>
+    ),
     objectName: "workPictures",
-  },
-  {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        Which <span className={"blue"}>theme</span> do you like more?
+    questionInput: (inputFunc, inputValue, theme) => (
+      <div>
+        <div className={"workRowContainer"}>
+          <div className={"workInformationContainer"}>
+            <div className={"profileImageUpload"}>
+              {inputValue && inputValue.work1.image ? (
+                <img
+                  src={inputValue.work1.image}
+                  className={"profileImagePreview"}
+                />
+              ) : (
+                <div>
+                  <FontAwesomeIcon
+                    icon={["fas", "camera"]}
+                    color={"#ffffff"}
+                    size={"5x"}
+                  />
+                </div>
+              )}
+              <div className={"imageOverlay smallText white bold"}>
+                Choose Image
+              </div>
+              <input
+                className={"fileUploadInput"}
+                type="file"
+                name="myImage"
+                accept="image/*"
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: URL.createObjectURL(event.target.files[0]),
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+              />
+            </div>
+            <div className={"workTitleDescriptionContainer"}>
+              <input
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: event.target.value,
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+                maxLength={15}
+                value={inputValue ? inputValue.work1.title : ""}
+                placeholder={"Title..."}
+                className={
+                  "black " +
+                  theme +
+                  "TextInput questionTextInput questionTextInputSmall black tinyText"
+                }
+              />
+              <div className={"workMinCharacters tinyText gray"}>
+                {inputValue
+                  ? inputValue.work1.title.length <= 3
+                    ? "Min characters: " + (3 - inputValue.work1.title.length)
+                    : "Max characters: " + (15 - inputValue.work1.title.length)
+                  : "Min characters: 3"}
+              </div>
+              <div className={"verticalSpacer"} />
+              <input
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: event.target.value,
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+                maxLength={30}
+                value={inputValue ? inputValue.work1.description : ""}
+                placeholder={"Description..."}
+                className={
+                  "black " +
+                  theme +
+                  "TextInput questionTextInput questionTextInputSmall black tinyText"
+                }
+              />
+              <div className={"workMinCharacters tinyText gray"}>
+                {inputValue
+                  ? inputValue.work1.description.length <= 10
+                    ? "Min characters: " +
+                      (10 - inputValue.work1.description.length)
+                    : "Max characters: " +
+                      (30 - inputValue.work1.description.length)
+                  : "Min characters: 10"}
+              </div>
+            </div>
+          </div>
+          <div className={"workInformationContainer"}>
+            <div className={"profileImageUpload"}>
+              {inputValue && inputValue.work2.image ? (
+                <img
+                  src={inputValue.work2.image}
+                  className={"profileImagePreview"}
+                />
+              ) : (
+                <div>
+                  <FontAwesomeIcon
+                    icon={["fas", "camera"]}
+                    color={"#ffffff"}
+                    size={"5x"}
+                  />
+                </div>
+              )}
+              <div className={"imageOverlay smallText white bold"}>
+                Choose Image
+              </div>
+              <input
+                className={"fileUploadInput"}
+                type="file"
+                name="myImage"
+                accept="image/*"
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: URL.createObjectURL(event.target.files[0]),
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+              />
+            </div>
+            <div className={"workTitleDescriptionContainer"}>
+              <input
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: event.target.value,
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+                maxLength={15}
+                value={inputValue ? inputValue.work2.title : ""}
+                placeholder={"Title..."}
+                className={
+                  "black " +
+                  theme +
+                  "TextInput questionTextInput questionTextInputSmall black tinyText"
+                }
+              />
+              <div className={"workMinCharacters tinyText gray"}>
+                {inputValue
+                  ? inputValue.work2.title.length <= 3
+                    ? "Min characters: " + (3 - inputValue.work2.title.length)
+                    : "Max characters: " + (15 - inputValue.work2.title.length)
+                  : "Min characters: 3"}
+              </div>
+              <div className={"verticalSpacer"} />
+              <input
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: event.target.value,
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+                maxLength={30}
+                value={inputValue ? inputValue.work2.description : ""}
+                placeholder={"Description..."}
+                className={
+                  "black " +
+                  theme +
+                  "TextInput questionTextInput questionTextInputSmall black tinyText"
+                }
+              />
+              <div className={"workMinCharacters tinyText gray"}>
+                {inputValue
+                  ? inputValue.work2.description.length <= 10
+                    ? "Min characters: " +
+                      (10 - inputValue.work2.description.length)
+                    : "Max characters: " +
+                      (30 - inputValue.work2.description.length)
+                  : "Min characters: 10"}
+              </div>
+            </div>
+          </div>
+          <div className={"workInformationContainer"}>
+            <div className={"profileImageUpload"}>
+              {inputValue && inputValue.work3.image ? (
+                <img
+                  src={inputValue.work3.image}
+                  className={"profileImagePreview"}
+                />
+              ) : (
+                <div>
+                  <FontAwesomeIcon
+                    icon={["fas", "camera"]}
+                    color={"#ffffff"}
+                    size={"5x"}
+                  />
+                </div>
+              )}
+              <div className={"imageOverlay smallText white bold"}>
+                Choose Image
+              </div>
+              <input
+                className={"fileUploadInput"}
+                type="file"
+                name="myImage"
+                accept="image/*"
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: URL.createObjectURL(event.target.files[0]),
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+              />
+            </div>
+            <div className={"workTitleDescriptionContainer"}>
+              <input
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: event.target.value,
+                      description: inputValue
+                        ? inputValue.work3.description
+                        : "",
+                    },
+                  });
+                }}
+                maxLength={15}
+                value={inputValue ? inputValue.work3.title : ""}
+                placeholder={"Title..."}
+                className={
+                  "black " +
+                  theme +
+                  "TextInput questionTextInput questionTextInputSmall black tinyText"
+                }
+              />
+              <div className={"workMinCharacters tinyText gray"}>
+                {inputValue
+                  ? inputValue.work3.title.length <= 3
+                    ? "Min characters: " + (3 - inputValue.work3.title.length)
+                    : "Max characters: " + (15 - inputValue.work3.title.length)
+                  : "Min characters: 3"}
+              </div>
+              <div className={"verticalSpacer"} />
+              <input
+                onChange={(event) => {
+                  inputFunc({
+                    work1: {
+                      image: inputValue ? inputValue.work1.image : "",
+                      title: inputValue ? inputValue.work1.title : "",
+                      description: inputValue
+                        ? inputValue.work1.description
+                        : "",
+                    },
+                    work2: {
+                      image: inputValue ? inputValue.work2.image : "",
+                      title: inputValue ? inputValue.work2.title : "",
+                      description: inputValue
+                        ? inputValue.work2.description
+                        : "",
+                    },
+                    work3: {
+                      image: inputValue ? inputValue.work3.image : "",
+                      title: inputValue ? inputValue.work3.title : "",
+                      description: event.target.value,
+                    },
+                  });
+                }}
+                maxLength={30}
+                value={inputValue ? inputValue.work3.description : ""}
+                placeholder={"Description..."}
+                className={
+                  "black " +
+                  theme +
+                  "TextInput questionTextInput questionTextInputSmall black tinyText"
+                }
+              />
+              <div className={"workMinCharacters tinyText gray"}>
+                {inputValue
+                  ? inputValue.work3.description.length <= 10
+                    ? "Min characters: " +
+                      (10 - inputValue.work3.description.length)
+                    : "Max characters: " +
+                      (30 - inputValue.work3.description.length)
+                  : "Min characters: 10"}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={"minText tinyText gray"}>
+          Try to upload high quality images (At least 1024px x 1024px)
+        </div>
       </div>
     ),
-    questionSubtitle: "Tell us whether you like the light or dark theme.",
+  },
+  {
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        Which{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>theme</span>{" "}
+        do you like more?
+      </div>
+    ),
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Tell us whether you like the light or dark theme.
+      </div>
+    ),
     objectName: "theme",
-  },
-  {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What's your <span className={"blue"}>email address?</span>
+    questionInput: (inputFunc, inputValue, theme) => (
+      <div className={"doubleRowContainer"}>
+        <div
+          className={
+            inputValue === "light"
+              ? "lightDarkPickerContainer blueBorder"
+              : "lightDarkPickerContainer"
+          }
+        >
+          <div
+            className={
+              inputValue === "light"
+                ? "smallText bold blue"
+                : "smallText bold gray"
+            }
+          >
+            Light
+          </div>
+          <div
+            className={
+              inputValue === "light"
+                ? "circlePickerOuter blueBorder"
+                : "circlePickerOuter"
+            }
+            onClick={() => {
+              inputFunc("light");
+            }}
+          >
+            <div
+              className={inputValue === "light" ? "circlePickerInner" : ""}
+            />
+          </div>
+          <img className={"themePickerScreenshot"} src={ScreenshotLight} />
+        </div>
+        <div className={"imageSpacer"} />
+        <div
+          className={
+            inputValue === "dark"
+              ? "lightDarkPickerContainer blueBorder"
+              : "lightDarkPickerContainer"
+          }
+        >
+          <div
+            className={
+              inputValue === "dark"
+                ? "smallText bold blue"
+                : "smallText bold gray"
+            }
+          >
+            Dark
+          </div>
+          <div
+            className={
+              inputValue === "dark"
+                ? "circlePickerOuter blueBorder"
+                : "circlePickerOuter"
+            }
+            onClick={() => {
+              inputFunc("dark");
+            }}
+          >
+            <div className={inputValue === "dark" ? "circlePickerInner" : ""} />
+          </div>
+          <img className={"themePickerScreenshot"} src={ScreenshotDark} />
+        </div>
       </div>
     ),
-    questionSubtitle: "Tell us how people will contact you.",
+  },
+  {
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What's your{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          email address?
+        </span>
+      </div>
+    ),
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Tell us how people will contact you.
+      </div>
+    ),
     objectName: "emailAddress",
-    questionTextInput: (inputFunc, inputValue) => (
+    questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
-        <div className={"mediumText black bold"}>My email is </div>
+        <div
+          className={
+            theme === "light"
+              ? "mediumText black bold"
+              : "mediumText lightPurple bold"
+          }
+        >
+          My email is{" "}
+        </div>
         <div className={"questionSpacer"} />
         <input
           onChange={(event) => inputFunc(event.target.value)}
           value={inputValue ? inputValue : ""}
           placeholder={"johnsmith@gmail.com..."}
           className={
-            "questionTextInput black mediumText questionTextInputUltraWide"
+            "black " +
+            theme +
+            "TextInput questionTextInput mediumText questionTextInputUltraWide"
           }
         />
       </div>
     ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What's your <span className={"blue"}>phone number?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What's your{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          phone number?
+        </span>
       </div>
     ),
-    questionSubtitle: "Tell us how people will contact you.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Tell us how people will contact you.
+      </div>
+    ),
     objectName: "phoneNumber",
-    questionTextInput: (inputFunc, inputValue) => (
+    questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
-        <div className={"mediumText black bold"}>My phone number is </div>
+        <div
+          className={
+            theme === "light"
+              ? "mediumText black bold"
+              : "mediumText lightPurple bold"
+          }
+        >
+          My phone number is{" "}
+        </div>
         <div className={"questionSpacer"} />
         <input
           onChange={(event) => inputFunc(event.target.value)}
           value={inputValue ? inputValue : ""}
           placeholder={"(425) 111-1111..."}
-          className={"questionTextInput black mediumText questionTextInputWide"}
+          className={
+            "black " +
+            theme +
+            "TextInput questionTextInput mediumText questionTextInputWide"
+          }
         />
       </div>
     ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What are your <span className={"blue"}>social medias?</span>
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What are your{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          social medias?
+        </span>
       </div>
     ),
-    questionSubtitle: "Tell us how people can discover you.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        Tell us how people can discover you.
+      </div>
+    ),
     objectName: "socialMedias",
+    questionInput: (inputFunc, inputValue, theme) => (
+      <div className={'socialMediasOuterContainer'}>
+        {[
+          "instagram",
+          "facebook",
+          "twitter",
+          "youtube",
+          "linkedin",
+          "pinterest",
+          "tiktok",
+        ].map((eachSocial) => (
+          <div className={"socialMediasContainer"}>
+            <div>
+              <FontAwesomeIcon
+                icon={["fab", eachSocial]}
+                color={theme === "light" ? "#0e8afc" : "#ccd7f6"}
+                size={"3x"}
+              />
+            </div>
+            <input
+              onChange={(event) =>
+                inputFunc({
+                  instagram: inputValue ? inputValue.instagram : "",
+                  facebook: inputValue ? inputValue.facebook : "",
+                  twitter: inputValue ? inputValue.twitter : "",
+                  youtube: inputValue ? inputValue.youtube : "",
+                  linkedin: inputValue ? inputValue.linkedin : "",
+                  pinterest: inputValue ? inputValue.pinterest : "",
+                  [eachSocial]: event.target.value,
+                })
+              }
+              value={inputValue ? inputValue[eachSocial] : ""}
+              placeholder={"Link to your " + eachSocial + "..."}
+              className={
+                "black " +
+                theme +
+                "TextInput questionTextInput tinyText"
+              }
+            />
+          </div>
+        ))}
+      </div>
+    ),
   },
   {
-    questionTitle: (
-      <div className={"largerText black bold"}>
-        What <span className={"blue"}>domain name</span> would you like?
+    questionTitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "largerText black bold"
+            : "largerText lightPurple bold"
+        }
+      >
+        What{" "}
+        <span className={theme === "light" ? "blue" : "neonGreen"}>
+          domain name
+        </span>{" "}
+        would you like?
       </div>
     ),
-    questionSubtitle: "This is what people will type in to get to your site.",
+    questionSubtitle: (theme) => (
+      <div
+        className={
+          theme === "light"
+            ? "black smallText subtitleContainer"
+            : "lightPurple smallText subtitleContainer"
+        }
+      >
+        This is what people will type in to get to your site.
+      </div>
+    ),
     objectName: "domainName",
-    questionTextInput: (inputFunc, inputValue) => (
+    questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
-        <div className={"mediumText black bold"}>I want the domain </div>
+        <div
+          className={
+            theme === "light"
+              ? "mediumText black bold"
+              : "mediumText lightPurple bold"
+          }
+        >
+          I want the domain{" "}
+        </div>
         <div className={"questionSpacer"}></div>
         <input
           onChange={(event) => inputFunc(event.target.value)}
           value={inputValue ? inputValue : ""}
           placeholder={"johnsmith.com..."}
-          className={"questionTextInput black mediumText questionTextInputWide"}
+          className={
+            "black " +
+            theme +
+            "TextInput questionTextInput mediumText questionTextInputWide"
+          }
         />
       </div>
     ),
-    buttonText: "Pay",
   },
 ];
