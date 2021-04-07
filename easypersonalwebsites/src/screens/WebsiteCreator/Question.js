@@ -16,16 +16,18 @@ const Question = ({
   onNextClick,
   onInputEntered,
   currentUserInputObj,
+  goToPayment,
+  domainName,
 }) => {
   // The state for checking availability of the domain name
-  const [domainName, setDomainName] = useState("");
+  const [domainNameState, setDomainNameState] = useState(domainName);
   const [isCheckingDomain, setIsCheckingDomain] = useState(false);
   const [isDomainAvailable, setIsDomainAvailable] = useState("");
 
   return (
     <div className={"questionContainer"}>
-      <div className={'questionTitleContainer'}>
-      {QuestionsArray[currentIndex].questionTitle(currentUserInputObj.theme)}
+      <div className={"questionTitleContainer"}>
+        {QuestionsArray[currentIndex].questionTitle(currentUserInputObj.theme)}
       </div>
       <div className={"black smallText subtitleContainer"}>
         {QuestionsArray[currentIndex].questionSubtitle(
@@ -38,7 +40,7 @@ const Question = ({
               if (QuestionsArray[currentIndex].objectName === "domainName") {
                 setIsDomainAvailable("");
                 setIsCheckingDomain(false);
-                setDomainName(textTyped);
+                setDomainNameState(textTyped);
               }
               onInputEntered(
                 QuestionsArray[currentIndex].objectName,
@@ -51,7 +53,10 @@ const Question = ({
         : null}
       {QuestionsArray[currentIndex].objectName === "domainName" ? (
         isDomainAvailable === true ? (
-          <FadeIn visible={isDomainAvailable && isCheckingDomain === false} className={"domainStatus"}>
+          <FadeIn
+            visible={isDomainAvailable && isCheckingDomain === false}
+            className={"domainStatus"}
+          >
             <FontAwesomeIcon
               icon={["fas", "check"]}
               color={
@@ -59,12 +64,21 @@ const Question = ({
               }
               size={"5x"}
             />
-            <div className={"tinyText black"}>
+            <div
+              className={
+                currentUserInputObj.theme === "light"
+                  ? "tinyText black"
+                  : "tinyText lightPurple"
+              }
+            >
               Great! This domain name is available
             </div>
           </FadeIn>
         ) : isDomainAvailable === false ? (
-          <FadeIn visible={!isDomainAvailable && isCheckingDomain === false} className={"domainStatus"}>
+          <FadeIn
+            visible={!isDomainAvailable && isCheckingDomain === false}
+            className={"domainStatus"}
+          >
             <FontAwesomeIcon
               icon={["fas", "times"]}
               color={
@@ -72,8 +86,15 @@ const Question = ({
               }
               size={"5x"}
             />
-            <div className={"tinyText black"}>
-              Sorry, this domain name is unavailable. Please choose a different one.
+            <div
+              className={
+                currentUserInputObj.theme === "light"
+                  ? "tinyText black"
+                  : "tinyText lightPurple"
+              }
+            >
+              Sorry, this domain name is unavailable. Please choose a different
+              one.
             </div>
           </FadeIn>
         ) : null
@@ -105,11 +126,11 @@ const Question = ({
               isDomainAvailable === false ||
               isDomainAvailable === ""
             ) {
-              if (domainName.trim().length > 0) {
+              if (domainNameState.trim().length > 0) {
                 setIsCheckingDomain(true);
-                const result = await searchDomain(domainName);
+                const result = await searchDomain(domainNameState);
                 await sleep(500);
-                if (result !== -1 && result <= 12.99) {
+                if (result !== -1) {
                   setIsDomainAvailable(true);
                 } else {
                   setIsDomainAvailable(false);
@@ -118,6 +139,9 @@ const Question = ({
               }
             } else {
               // Moves to payment
+              goToPayment();
+              await sleep(800);
+              setIsDomainAvailable("");
             }
           }}
         />

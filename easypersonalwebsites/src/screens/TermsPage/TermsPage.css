@@ -1,0 +1,10 @@
+/* The CSS for the Terms Page */
+.termsPageContainer {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 2vh;
+}
+.smallLogoTermsPage {
+  height: 10vh;
+  margin-top: 2vh;
+}

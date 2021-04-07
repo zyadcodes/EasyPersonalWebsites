@@ -1,0 +1,497 @@
+/* This is going to contain the CSS for the Personal Website file */
+/* The media query for mobile devices */
+@media (min-width: 1px) {
+  .personalSiteContainerDark {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0a1a2e;
+  }
+  .personalSiteContainerLight {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+  }
+  .topHeaderDesktop {
+    display: none;
+  }
+  .smallVerticalSpacer {
+    height: 0.35vh;
+  }
+  .imageShadowContainer {
+    margin: 0 auto;
+    position: relative;
+  }
+  .profileImage1Style {
+    display: none;
+  }
+  .profileImage1ShadowStyle {
+    display: none;
+  }
+  .rowIntroSection {
+    display: flex;
+    width: 96vw;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 5vh;
+    padding-bottom: 3vh;
+  }
+  .introContainerLeft {
+    width: 80vw;
+    margin-left: 4vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .introTypistContainer {
+    min-height: 10vh;
+    padding-bottom: 5vh;
+  }
+  .aboutMeRowLightDesktop {
+    display: none;
+  }
+  .aboutMeRowDarkDesktop {
+    display: none;
+  }
+  .aboutMeRowDarkMobile {
+    display: flex;
+    width: 99vw;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #0a1a2e;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    padding-top: 3vh;
+  }
+  .aboutMeRowLightMobile {
+    display: flex;
+    width: 99vw;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    padding-top: 3vh;
+  }
+  .profilePic2ContainerDark {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7683cc;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 1vw;
+    border-radius: 10px;
+  }
+  .profilePic2ContainerLight {
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0e8afc;
+    padding: 5px;
+    border-radius: 10px;
+    margin: 1vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .profilePic2Style {
+    width: 25vw;
+    height: auto;
+    max-height: 100vh;
+    border-radius: 10px;
+  }
+  .aboutMeContainer {
+    width: 80vw;
+    margin-top: 3vh;
+  }
+  .myWorkContainerDark {
+    display: flex;
+    width: 99vw;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    align-items: center;
+    background-color: #0a1a2e;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+  }
+  .myWorkContainerLight {
+    display: flex;
+    width: 99vw;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    align-items: center;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+  }
+  .workImagesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 99vw;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 5;
+  }
+  .singleWorkImageContainer {
+    width: 70vw;
+    height: auto;
+    background-color: #0e8afc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .workImage {
+    width: 70vw;
+    height: auto;
+    border-radius: 10px;
+  }
+  .workImageOverlay {
+    display: none;
+  }
+  .workPictureDescription {
+    margin-top: 1.5vh;
+    margin-bottom: 2.5vh;
+  }
+  .footerDark {
+    display: flex;
+    width: 99vw;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 35vh;
+    align-items: center;
+    background-color: #0a1a2e;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    padding-bottom: 3vh;
+  }
+  .footerLight {
+    display: flex;
+    width: 99vw;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 35vh;
+    align-items: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    padding-bottom: 3vh;
+  }
+  .footerLeft {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 35vh;
+    justify-content: space-evenly;
+    margin-left: 4vw;
+  }
+  .contactRowDesktop {
+    display: none;
+  }
+  .contactRowMobile {
+    display: flex;
+    flex-direction: row;
+    width: 35vw;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .horizontalSpacer {
+    width: 2vw;
+  }
+  .footerRight {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .topHeaderMobileDark {
+    height: 12.5vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #64ffda;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .topHeaderMobileLight {
+    height: 12.5vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #0e8afc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .topHeaderMobilePic {
+    height: 10vh;
+    width: 10vh;
+    border-radius: 5vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .mediaDesktop {
+    display: none;
+  }
+  .mediaMobile {
+    display: block;
+  }
+  .errorLogo {
+    height: 20vh;
+  }
+  .errorContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    width: 96vw;
+    height: 75vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    margin-top: 10vh;
+  }
+}
+
+/* The media query for big devices like laptops and desktops */
+@media (min-width: 769px) {
+  .rowIntroSection {
+    display: flex;
+    width: 96vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 5vh;
+    padding-bottom: 3vh;
+  }
+  .profileImage1Style {
+    display: block;
+    position: relative;
+    z-index: 2;
+    width: 25vw;
+    height: auto;
+    max-height: 45vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+  }
+  .profileImage1ShadowStyle {
+    display: block;
+    opacity: 0.25; /* this is the magic part */
+    height: 100%;
+    left: 33%;
+    bottom: 33%;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  .introContainerLeft {
+    width: 40vw;
+    margin-left: 4vw;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  .introTypistContainer {
+    min-height: 30vh;
+    padding-bottom: 5vh;
+  }
+  .topHeaderDesktop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 12vh;
+    justify-content: space-between;
+    width: 40vw;
+    align-self: flex-end;
+    margin-right: 2vw;
+    min-width: 550px;
+  }
+  .topHeaderMobileDark {
+    display: none;
+  }
+  .topHeaderMobileLight {
+    display: none;
+  }
+  .aboutMeRowLightDesktop {
+    display: flex;
+    width: 99vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+  }
+  .aboutMeRowDarkDesktop {
+    display: flex;
+    width: 99vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #0a1a2e;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+  }
+  .aboutMeRowDarkMobile {
+    display: none;
+  }
+  .aboutMeRowLightMobile {
+    display: none;
+  }
+  .aboutMeContainer {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: space-between;
+  }
+  .profilePic2ContainerDark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #7683cc;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+  }
+  .profilePic2ContainerLight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0e8afc;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .workImagesContainer {
+    display: flex;
+    flex-direction: row;
+    width: 99vw;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 5;
+  }
+  .singleWorkImageContainer {
+    width: 25vw;
+    max-height: 50vh;
+    height: auto;
+    background-color: #0e8afc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .singleWorkImageContainer:hover .workImageOverlay {
+    opacity: 1;
+  }
+  .workImage {
+    width: 25vw;
+    max-height: 50vh;
+    height: auto;
+    border-radius: 10px;
+  }
+  .workImageOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 21.01vw;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: #0e8afc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+  .workPictureDescription {
+    display: none;
+  }
+  .footerDark {
+    display: flex;
+    width: 99vw;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30vh;
+    align-items: center;
+    background-color: #0a1a2e;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+  }
+  .footerLight {
+    display: flex;
+    width: 99vw;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30vh;
+    align-items: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+  }
+  .footerLeft {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 30vh;
+    justify-content: space-evenly;
+    margin-left: 4vw;
+  }
+  .contactRowDesktop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .contactRowMobile {
+    display: none;
+  }
+  .footerRight {
+    display: flex;
+    flex-direction: row;
+    width: 40vw;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .mediaDesktop {
+    display: block;
+  }
+  .mediaMobile {
+    display: none;
+  }
+}
+
+@media(hover: hover) and (pointer: fine) {
+  .neonHover:hover {
+    color: #64ffda;
+    transition: 0.2s;
+  }
+  .purpleHover:hover {
+    color: #ccd7f6;
+    transition: 0.2s;
+  }
+}

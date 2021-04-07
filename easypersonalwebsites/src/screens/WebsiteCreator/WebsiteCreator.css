@@ -1,21 +1,23 @@
 /* The media query for mobile devices */
 @media (min-width: 1px) {
   .bigLogo {
-    height: 50vh;
+    height: 30vh;
     margin-bottom: 5vh;
   }
   .smallLogo {
-    height: 7.5vh;
-    position: fixed;
-    left: 2.5vh;
-    top: 2.5vh;
+    height: 5vh;
+    align-self: flex-start;
+    margin-left: 2.5vh;
+    margin-top: 2.5vh;
   }
   .logoTextContainer {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 75vh;
+    width: 96vw;
+    height: 60vh;
     margin-top: 10vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
     justify-content: space-between;
     align-items: center;
     text-align: center;
@@ -44,7 +46,7 @@
     height: 100vh;
   }
   .typistContainer {
-    margin-top: 20vh;
+    margin-top: 10vh;
     padding-left: 4vw;
     padding-right: 4vw;
   }
@@ -59,7 +61,7 @@
   .stepContainer {
     display: flex;
     flex-direction: row;
-    margin-top: 12.5vh;
+    margin-top: 7.5vh;
     margin-bottom: 6vh;
   }
   .step {
@@ -69,19 +71,16 @@
     cursor: pointer;
     transition: 0.25s;
   }
-  .step:hover {
-    transform: scale(1.25);
-  }
   .selected {
-    width: 7.5vw;
+    width: 10vw;
     background-color: #0e8afc;
   }
   .unselected {
-    width: 3.75vw;
+    width: 5vw;
     background-color: #b2b2b2;
   }
   .bardark {
-    background-color: #64FFDA;
+    background-color: #64ffda;
     transition: 0.5s;
   }
   .barlight {
@@ -98,37 +97,160 @@
     cursor: pointer;
   }
   .dark {
-    background-color: #0A1B2E;
+    background-color: #0a1b2e;
     transition: 0.5s;
   }
   .light {
     background-color: #ffffff;
     transition: 0.5s;
   }
+  .paymentPageContainer {
+    display: flex;
+    justify-content: center;
+    height: 160vh;
+  }
+  .backButtonContainer {
+    position: absolute;
+    top: 3vh;
+    z-index: 1;
+  }
+  .fieldsModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+  }
+  .lightCreatingSite {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+  .darkCreatingSite {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a1b2e;
+  }
+  .websiteCreatedContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  .temporaryWebsiteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin-top: 4vh;
+  }
+  .centerAlignContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .feedbackModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 23vh;
+    width: 50vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .darkContainer {
+    background-color: #0a1b2e;
+  }
 }
 
 /* The media query for big devices like laptops and desktops */
 @media (min-width: 769px) {
+  .stepContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 12.5vh;
+    margin-bottom: 6vh;
+  }
+  .typistContainer {
+    margin-top: 10vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .bigLogo {
+    height: 50vh;
+    margin-bottom: 5vh;
+  }
   .smallLogo {
-    height: 10vh;
-    position: fixed;
-    left: 2.5vh;
-    top: 2.5vh;
+    height: 7.5vh;
+    align-self: flex-start;
+    margin-left: 2.5vh;
+    margin-top: 2.5vh;
   }
   .selected {
-    width: 5vw;
+    width: 7vw;
     background-color: #0e8afc;
   }
   .unselected {
-    width: 2.5vw;
+    width: 4.5vw;
     background-color: #b2b2b2;
   }
   .bardark {
-    background-color: #64FFDA;
+    background-color: #64ffda;
     transition: 0.5s;
   }
   .barlight {
     background-color: #0e8afc;
     transition: 0.5s;
+  }
+  .backButtonContainer {
+    position: absolute;
+    top: 3vh;
+    left: 2vw;
+    z-index: 1;
+  }
+  .paymentPageContainer {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+  }
+  .feedbackModal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 23vh;
+    width: 20vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .logoTextContainer {
+    display: flex;
+    flex-direction: column;
+    width: 96vw;
+    height: 75vh;
+    margin-top: 10vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media(hover: hover) and (pointer: fine) {
+  .step:hover {
+    transform: scale(1.25);
   }
 }

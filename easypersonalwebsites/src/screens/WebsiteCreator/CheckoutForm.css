@@ -1,0 +1,306 @@
+/* The CSS file for the Checkout Form */
+@media (min-width: 1px) {
+  .checkoutContainer {
+    display: flex;
+    flex-direction: column;
+    width: 63.5vw;
+    margin-top: 75px;
+  }
+  .paymentFormContainer {
+    background-color: #ffffff;
+    width: 63.5vw;
+    padding-bottom: 2vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    margin-left: -2vw;
+    margin-bottom: 2vh;
+    padding-bottom: 15px;
+  }
+  .paymentMethodText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 7.5vh;
+    margin-left: -2vw;
+    padding-left: 2vw;
+    width: 65.5vw;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .verticalSpacer {
+    height: 2vh;
+  }
+  .cardDetailsContainer {
+    width: 61.5vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-width: 1px;
+    border-color: #0e8afc;
+    border-style: solid;
+    border-radius: 10px;
+  }
+  .focusedDetails {
+    border-width: 2px;
+  }
+  .detailsComponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 63.5vw;
+  }
+  .detailsInput {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-width: 1px;
+    border-color: #0e8afc;
+    border-style: solid;
+    border-radius: 10px;
+    padding-left: 10px;
+    outline: none;
+  }
+  .smallInput {
+    width: calc(29vw - 10px);
+  }
+  .largeInput {
+    width: calc(63.5vw - 10px);
+  }
+  .selectInput {
+    width: calc(31vw - 10px);
+  }
+  .detailsComponentSmall:focus {
+    border-width: 2px;
+  }
+  .paymentSummaryCenterAlign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .paymentSummaryContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 63.5vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    padding-right: 2vw;
+    padding-left: 2vw;
+    padding-bottom: 20px;
+  }
+  .paymentSummaryText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 7.5vh;
+    margin-left: -2vw;
+    padding-left: 2vw;
+    width: 65.5vw;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .checkoutInfoContainer {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2vh;
+    width: 50vw;
+    align-self: center;
+    justify-content: space-between;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .previewSiteContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 5vw;
+  }
+  .checkoutSmallLogo {
+    height: 5vh;
+    width: auto;
+    margin-right: 1vw;
+  }
+  .checkoutLargeLogo {
+    height: 20vh;
+    width: auto;
+    margin-bottom: 2vh;
+  }
+  .clickable {
+    cursor: pointer;
+  }
+  .paymentContainer {
+    padding-bottom: 1vh;
+    width: 50vw;
+    align-self: center;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .checkoutRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50vw;
+  }
+  .payButtonContainer {
+    align-self: center;
+  }
+  .securePaymentContainer {
+    width: 50vw;
+    justify-content: space-evenly;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -2vh;
+  }
+  .termsContainer {
+    padding-bottom: 0.25vh;
+  }
+  .modal {
+    padding: 10px;
+    width: 50vw;
+    height: 80vh;
+    overflow: auto;
+  }
+  .checkoutFieldsModal {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+  }
+}
+
+@media (min-width: 1050px) {
+  .checkoutContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 63.5vw;
+    margin-top: 4vh;
+  }
+  .paymentFormContainer {
+    background-color: #ffffff;
+    width: 36vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+  .paymentMethodText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 7.5vh;
+    margin-left: -2vw;
+    padding-left: 2vw;
+    width: 38vw;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .cardDetailsContainer {
+    width: 34vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-width: 1px;
+    border-color: #0e8afc;
+    border-style: solid;
+    border-radius: 10px;
+  }
+  .detailsComponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 36vw;
+  }
+  .smallInput {
+    width: calc(17vw - 10px);
+  }
+  .largeInput {
+    width: calc(36vw - 10px);
+  }
+  .selectInput {
+    width: calc(18vw - 10px);
+  }
+  .paymentSummaryContainer {
+    background-color: #ffffff;
+    width: 18vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    padding-right: 2vw;
+    padding-left: 2vw;
+  }
+  .paymentSummaryText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 7.5vh;
+    margin-left: -2vw;
+    padding-left: 1vw;
+    width: 21vw;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .checkoutInfoContainer {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2vh;
+    width: 18vw;
+    align-self: center;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .checkoutSmallLogo {
+    height: 5vh;
+    width: auto;
+    margin-right: 1vw;
+  }
+  .checkoutLargeLogo {
+    height: 20vh;
+    width: auto;
+  }
+  .paymentContainer {
+    padding-bottom: 1vh;
+    width: 18vw;
+    align-self: center;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #bcbaba;
+  }
+  .checkoutRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 18vw;
+  }
+  .securePaymentContainer {
+    width: 18vw;
+    justify-content: space-evenly;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -2vh;
+  }
+}

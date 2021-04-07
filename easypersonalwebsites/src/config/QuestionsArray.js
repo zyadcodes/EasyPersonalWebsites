@@ -3,8 +3,6 @@ import React from "react";
 import "./fontStyles.css";
 import "../screens/WebsiteCreator/Question.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ScreenshotDark from "../assets/ScreenshotDark.png";
-import ScreenshotLight from "../assets/ScreenshotLight.png";
 
 export default [
   {
@@ -257,7 +255,7 @@ export default [
           <div className={"minCharactersContainer tinyText gray"}>
             {inputValue
               ? inputValue.length <= 120
-                ? "Min characters: " + (120 - inputValue.length)
+                ? "Min characters: " + (119 - inputValue.length)
                 : "Max characters: " + (180 - inputValue.length)
               : "Min characters: 120"}
           </div>
@@ -348,7 +346,13 @@ export default [
     questionInput: (inputFunc, inputValue, theme) => (
       <div>
         <div className={"doubleRowContainer"}>
-          <div className={"profileImageUpload"}>
+          <div
+            className={
+              theme === "dark"
+                ? "profileImageUpload darkBackgroundColor"
+                : "profileImageUpload"
+            }
+          >
             {inputValue && inputValue.profileImage1 ? (
               <img
                 src={inputValue.profileImage1}
@@ -363,7 +367,13 @@ export default [
                 />
               </div>
             )}
-            <div className={"imageOverlay smallText white bold"}>
+            <div
+              className={
+                theme === "dark"
+                  ? "imageOverlay smallText white bold darkBackgroundColor"
+                  : "imageOverlay smallText white bold"
+              }
+            >
               Choose Image
             </div>
             <input
@@ -380,7 +390,13 @@ export default [
             />
           </div>
           <div className={"imageSpacer"} />
-          <div className={"profileImageUpload"}>
+          <div
+            className={
+              theme === "dark"
+                ? "profileImageUpload darkBackgroundColor"
+                : "profileImageUpload"
+            }
+          >
             {inputValue && inputValue.profileImage2 ? (
               <img
                 src={inputValue.profileImage2}
@@ -395,7 +411,13 @@ export default [
                 />
               </div>
             )}
-            <div className={"imageOverlay smallText white bold"}>
+            <div
+              className={
+                theme === "dark"
+                  ? "imageOverlay smallText white bold darkBackgroundColor"
+                  : "imageOverlay smallText white bold"
+              }
+            >
               Choose Image
             </div>
             <input
@@ -449,7 +471,13 @@ export default [
       <div>
         <div className={"workRowContainer"}>
           <div className={"workInformationContainer"}>
-            <div className={"profileImageUpload"}>
+            <div
+              className={
+                theme === "dark"
+                  ? "profileImageUpload darkBackgroundColor"
+                  : "profileImageUpload"
+              }
+            >
               {inputValue && inputValue.work1.image ? (
                 <img
                   src={inputValue.work1.image}
@@ -464,7 +492,13 @@ export default [
                   />
                 </div>
               )}
-              <div className={"imageOverlay smallText white bold"}>
+              <div
+                className={
+                  theme === "dark"
+                    ? "imageOverlay smallText white bold darkBackgroundColor"
+                    : "imageOverlay smallText white bold"
+                }
+              >
                 Choose Image
               </div>
               <input
@@ -526,7 +560,7 @@ export default [
                     },
                   });
                 }}
-                maxLength={15}
+                maxLength={20}
                 value={inputValue ? inputValue.work1.title : ""}
                 placeholder={"Title..."}
                 className={
@@ -539,7 +573,7 @@ export default [
                 {inputValue
                   ? inputValue.work1.title.length <= 3
                     ? "Min characters: " + (3 - inputValue.work1.title.length)
-                    : "Max characters: " + (15 - inputValue.work1.title.length)
+                    : "Max characters: " + (20 - inputValue.work1.title.length)
                   : "Min characters: 3"}
               </div>
               <div className={"verticalSpacer"} />
@@ -588,7 +622,13 @@ export default [
             </div>
           </div>
           <div className={"workInformationContainer"}>
-            <div className={"profileImageUpload"}>
+            <div
+              className={
+                theme === "dark"
+                  ? "profileImageUpload darkBackgroundColor"
+                  : "profileImageUpload"
+              }
+            >
               {inputValue && inputValue.work2.image ? (
                 <img
                   src={inputValue.work2.image}
@@ -603,7 +643,13 @@ export default [
                   />
                 </div>
               )}
-              <div className={"imageOverlay smallText white bold"}>
+              <div
+                className={
+                  theme === "dark"
+                    ? "imageOverlay smallText white bold darkBackgroundColor"
+                    : "imageOverlay smallText white bold"
+                }
+              >
                 Choose Image
               </div>
               <input
@@ -665,7 +711,7 @@ export default [
                     },
                   });
                 }}
-                maxLength={15}
+                maxLength={20}
                 value={inputValue ? inputValue.work2.title : ""}
                 placeholder={"Title..."}
                 className={
@@ -678,7 +724,7 @@ export default [
                 {inputValue
                   ? inputValue.work2.title.length <= 3
                     ? "Min characters: " + (3 - inputValue.work2.title.length)
-                    : "Max characters: " + (15 - inputValue.work2.title.length)
+                    : "Max characters: " + (20 - inputValue.work2.title.length)
                   : "Min characters: 3"}
               </div>
               <div className={"verticalSpacer"} />
@@ -727,7 +773,13 @@ export default [
             </div>
           </div>
           <div className={"workInformationContainer"}>
-            <div className={"profileImageUpload"}>
+            <div
+              className={
+                theme === "dark"
+                  ? "profileImageUpload darkBackgroundColor"
+                  : "profileImageUpload"
+              }
+            >
               {inputValue && inputValue.work3.image ? (
                 <img
                   src={inputValue.work3.image}
@@ -742,7 +794,13 @@ export default [
                   />
                 </div>
               )}
-              <div className={"imageOverlay smallText white bold"}>
+              <div
+                className={
+                  theme === "dark"
+                    ? "imageOverlay smallText white bold darkBackgroundColor"
+                    : "imageOverlay smallText white bold"
+                }
+              >
                 Choose Image
               </div>
               <input
@@ -804,7 +862,7 @@ export default [
                     },
                   });
                 }}
-                maxLength={15}
+                maxLength={20}
                 value={inputValue ? inputValue.work3.title : ""}
                 placeholder={"Title..."}
                 className={
@@ -817,7 +875,7 @@ export default [
                 {inputValue
                   ? inputValue.work3.title.length <= 3
                     ? "Min characters: " + (3 - inputValue.work3.title.length)
-                    : "Max characters: " + (15 - inputValue.work3.title.length)
+                    : "Max characters: " + (20 - inputValue.work3.title.length)
                   : "Min characters: 3"}
               </div>
               <div className={"verticalSpacer"} />
@@ -899,11 +957,11 @@ export default [
     ),
     objectName: "theme",
     questionInput: (inputFunc, inputValue, theme) => (
-      <div className={"doubleRowContainer"}>
+      <div className={"themeRowContainer"}>
         <div
           className={
             inputValue === "light"
-              ? "lightDarkPickerContainer blueBorder"
+              ? "lightDarkPickerContainer"
               : "lightDarkPickerContainer"
           }
         >
@@ -916,6 +974,7 @@ export default [
           >
             Light
           </div>
+          <div className={'verticalSpacer'} />
           <div
             className={
               inputValue === "light"
@@ -930,38 +989,47 @@ export default [
               className={inputValue === "light" ? "circlePickerInner" : ""}
             />
           </div>
-          <img className={"themePickerScreenshot"} src={ScreenshotLight} />
         </div>
-        <div className={"imageSpacer"} />
+        <div className={"horizontalSpacer"} />
+        <div className={"horizontalSpacer"} />
+        <div className={"horizontalSpacer"} />
+        <div className={"horizontalSpacer"} />
+        <div className={"horizontalSpacer"} />
         <div
           className={
             inputValue === "dark"
-              ? "lightDarkPickerContainer blueBorder"
+              ? "lightDarkPickerContainer"
               : "lightDarkPickerContainer"
           }
         >
           <div
             className={
               inputValue === "dark"
-                ? "smallText bold blue"
+                ? "smallText bold lightPurple"
                 : "smallText bold gray"
             }
           >
             Dark
           </div>
+          <div className={'verticalSpacer'} />
           <div
             className={
               inputValue === "dark"
-                ? "circlePickerOuter blueBorder"
+                ? "circlePickerOuter purpleBorder"
                 : "circlePickerOuter"
             }
             onClick={() => {
               inputFunc("dark");
             }}
           >
-            <div className={inputValue === "dark" ? "circlePickerInner" : ""} />
+            <div
+              className={
+                inputValue === "dark"
+                  ? "circlePickerInner darkBackgroundColor"
+                  : ""
+              }
+            />
           </div>
-          <img className={"themePickerScreenshot"} src={ScreenshotDark} />
         </div>
       </div>
     ),
@@ -1060,6 +1128,7 @@ export default [
         <input
           onChange={(event) => inputFunc(event.target.value)}
           value={inputValue ? inputValue : ""}
+          type={"tel"}
           placeholder={"(425) 111-1111..."}
           className={
             "black " +
@@ -1098,7 +1167,7 @@ export default [
     ),
     objectName: "socialMedias",
     questionInput: (inputFunc, inputValue, theme) => (
-      <div className={'socialMediasOuterContainer'}>
+      <div className={"socialMediasOuterContainer"}>
         {[
           "instagram",
           "facebook",
@@ -1116,6 +1185,7 @@ export default [
                 size={"3x"}
               />
             </div>
+            <div className={"socialMediaHorizontalSpacer"} />
             <input
               onChange={(event) =>
                 inputFunc({
@@ -1131,9 +1201,7 @@ export default [
               value={inputValue ? inputValue[eachSocial] : ""}
               placeholder={"Link to your " + eachSocial + "..."}
               className={
-                "black " +
-                theme +
-                "TextInput questionTextInput tinyText"
+                "black " + theme + "TextInput questionTextInput tinyText"
               }
             />
           </div>

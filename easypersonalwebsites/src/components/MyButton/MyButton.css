@@ -3,45 +3,12 @@
 /* The media query for mobile devices */
 @media (min-width: 1px) {
   .myButtonContainer {
-    min-width: 20px;
+    min-width: 100px;
     min-height: 40px;
     padding-top: 5px;
     padding-bottom: 5px;
-    padding-left: 50px;
-    padding-right: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #0e8afc;
-    border-radius: 10px;
-    border-width: 0;
-    transition: 0.5s;
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    outline: none;
-    z-index: 1;
-    margin-bottom: 5vh;
-  }
-  .myButtonContainer:hover {
-    transform: scale(1.25);
-  }
-  .darkButton {
-    background-color: #7683cc;
-    transition: 0.5s;
-  }
-}
-
-/* The media query for big devices like laptops and desktops */
-@media (min-width: 769px) {
-  .myButtonContainer {
-    min-width: 50px;
-    min-height: 60px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,15 +17,102 @@
     background-color: #0e8afc;
     border-radius: 20px;
     border-width: 0;
-    transition: 0.5s;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     outline: none;
     z-index: 1;
     margin-bottom: 5vh;
+    transition: 0.2s;
+  }
+  .payButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .horizonatalPaySpacer {
+    width: 10px;
   }
   .darkButton {
     background-color: #7683cc;
-    transition: 0.5s;
+    transition: 0.2s;
+  }
+  .backButton {
+    width: 7.5vw;
+    height: 7.5vw;
+    border-radius: 3.75vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    outline: none;
+    z-index: 1;
+    transition: 0.2s;
+    background-color: #0e8afc;
+    border-width: 0px;
+  }
+}
+
+/* The media query for big devices like laptops and desktops */
+@media (min-width: 769px) {
+  .myButtonContainer {
+    min-width: 150px;
+    min-height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #0e8afc;
+    border-radius: 40px;
+    border-width: 0;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    outline: none;
+    z-index: 1;
+    margin-bottom: 5vh;
+    transition: 0.2s;
+  }
+  .payButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .darkButton {
+    background-color: #7683cc;
+    transition: 0.2s;
+  }
+  .backButton {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 2.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    outline: none;
+    z-index: 1;
+    transition: 0.2s;
+    background-color: #0e8afc;
+    border-width: 0px;
+  }
+}
+
+@media(hover: hover) and (pointer: fine) {
+  .backButton:hover {
+    background-color: #7683cc;
+  }
+  .myButtonContainer:hover {
+    background-color: #7683cc;
+  }
+  .darkButton:hover {
+    background-color: #0e8afc;
   }
 }
