@@ -14,10 +14,15 @@ import MyButton from "../../components/MyButton/MyButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "react-awesome-modal";
 import { TermsOfService, PrivacyPolicy } from "./TermsStrings";
-import { createCustomer } from "../../config/server";
+import { createCustomer, createTestCustomer } from "../../config/server";
 
 // Creates the component
-const CheckoutForm = ({ userInput, processTransaction, completeCheckout }) => {
+const CheckoutForm = ({
+  userInput,
+  processTransaction,
+  completeCheckout,
+  affiliateLink,
+}) => {
   // The stripe hook
   const stripe = useStripe();
   const elements = useElements();
@@ -88,21 +93,26 @@ const CheckoutForm = ({ userInput, processTransaction, completeCheckout }) => {
         // Displays error for incorrect card info
         setErrorMessage("Please enter valid card details");
         setIsErrorVisible(true);
+        setDisabledButton(false);
       } else {
         processTransaction();
-        await createCustomer(userInput, {
-          paymentMethod: paymentMethod.id,
-          firstName,
-          lastName,
-          address,
-          city,
-          zipCode,
-          country,
-          region,
-          phoneNumber,
-          email,
-        });
-        completeCheckout();
+        const customerID = await createCustomer(
+          userInput,
+          {
+            paymentMethod: paymentMethod.id,
+            firstName,
+            lastName,
+            address,
+            city,
+            zipCode,
+            country,
+            region,
+            phoneNumber,
+            email,
+          },
+          affiliateLink
+        );
+        completeCheckout(customerID);
       }
     }
   };
@@ -239,15 +249,11 @@ const CheckoutForm = ({ userInput, processTransaction, completeCheckout }) => {
                     const expiresDate = new Date();
                     expiresDate.setDate(expiresDate.getDate() + 1);
                     openInNewTab(
-                      "https://easypersonalwebsites.com/" +
-                        JSON.stringify({
-                          ...userInput,
-                          expiresDate,
-                        })
+                      "https://easypersonalwebsites.com/sXvjnA9Mi60qhXy2Gcb1"
                     );
                   }}
                 >
-                  Preview
+                  Example
                 </div>
               </div>
             </div>
@@ -360,11 +366,17 @@ const stripePromise = loadStripe(
 );
 
 // Exports the component
-export default ({ userInput, completeCheckout, processTransaction }) => (
+export default ({
+  userInput,
+  completeCheckout,
+  processTransaction,
+  affiliateLink,
+}) => (
   <Elements stripe={stripePromise}>
     <CheckoutForm
+      affiliateLink={affiliateLink}
       userInput={userInput}
-      completeCheckout={completeCheckout}
+      completeCheckout={(customerID) => completeCheckout(customerID)}
       processTransaction={processTransaction}
     />
   </Elements>

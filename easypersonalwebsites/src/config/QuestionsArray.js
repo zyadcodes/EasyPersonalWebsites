@@ -32,6 +32,7 @@ export default [
       </div>
     ),
     objectName: "firstName",
+    isCompleted: (inputValue) => inputValue && inputValue.trim().length > 0,
     questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
         <div
@@ -82,6 +83,7 @@ export default [
       </div>
     ),
     objectName: "lastName",
+    isCompleted: (inputValue) => inputValue && inputValue.trim().length > 0,
     questionInput: (inputFunc, inputValue, theme) => {
       return (
         <div className={"questionTextInputContainer"}>
@@ -132,6 +134,7 @@ export default [
       </div>
     ),
     objectName: "occupation",
+    isCompleted: (inputValue) => inputValue && inputValue.trim().length > 0,
     questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
         <div
@@ -184,6 +187,7 @@ export default [
       </div>
     ),
     objectName: "title",
+    isCompleted: (inputValue) => inputValue && inputValue.trim().length > 0,
     questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
         <div
@@ -235,6 +239,10 @@ export default [
       </div>
     ),
     objectName: "occupationDescription",
+    isCompleted: (inputValue) =>
+      inputValue &&
+      inputValue.trim().length > 119 &&
+      inputValue.trim().length < 181,
     questionInput: (inputFunc, inputValue, theme) => {
       return (
         <div>
@@ -255,7 +263,7 @@ export default [
           <div className={"minCharactersContainer tinyText gray"}>
             {inputValue
               ? inputValue.length <= 120
-                ? "Min characters: " + (119 - inputValue.length)
+                ? "Min characters: " + (120 - inputValue.length)
                 : "Max characters: " + (180 - inputValue.length)
               : "Min characters: 120"}
           </div>
@@ -290,6 +298,10 @@ export default [
       </div>
     ),
     objectName: "aboutMe",
+    isCompleted: (inputValue) =>
+      inputValue &&
+      inputValue.trim().length > 239 &&
+      inputValue.trim().length < 301,
     questionInput: (inputFunc, inputValue, theme) => (
       <div>
         <div className={"questionTextInputContainer"}>
@@ -343,6 +355,10 @@ export default [
       </div>
     ),
     objectName: "profilePictures",
+    isCompleted: (inputValue) =>
+      inputValue &&
+      inputValue.profileImage1 !== "" &&
+      inputValue.profileImage2 !== "",
     questionInput: (inputFunc, inputValue, theme) => (
       <div>
         <div className={"doubleRowContainer"}>
@@ -467,6 +483,23 @@ export default [
       </div>
     ),
     objectName: "workPictures",
+    isCompleted: (inputValue) =>
+      inputValue &&
+      inputValue.work1.image !== "" &&
+      inputValue.work2.image !== "" &&
+      inputValue.work3.image !== "" &&
+      inputValue.work1.title.trim().length > 2 &&
+      inputValue.work1.title.trim().length < 21 &&
+      inputValue.work2.title.trim().length > 2 &&
+      inputValue.work2.title.trim().length < 21 &&
+      inputValue.work3.title.trim().length > 2 &&
+      inputValue.work3.title.trim().length < 21 &&
+      inputValue.work1.description.trim().length > 9 &&
+      inputValue.work1.description.trim().length < 31 &&
+      inputValue.work2.description.trim().length > 9 &&
+      inputValue.work2.description.trim().length < 31 &&
+      inputValue.work3.description.trim().length > 9 &&
+      inputValue.work3.description.trim().length < 31,
     questionInput: (inputFunc, inputValue, theme) => (
       <div>
         <div className={"workRowContainer"}>
@@ -956,6 +989,7 @@ export default [
       </div>
     ),
     objectName: "theme",
+    isCompleted: (inputValue) => true,
     questionInput: (inputFunc, inputValue, theme) => (
       <div className={"themeRowContainer"}>
         <div
@@ -974,7 +1008,7 @@ export default [
           >
             Light
           </div>
-          <div className={'verticalSpacer'} />
+          <div className={"verticalSpacer"} />
           <div
             className={
               inputValue === "light"
@@ -1011,7 +1045,7 @@ export default [
           >
             Dark
           </div>
-          <div className={'verticalSpacer'} />
+          <div className={"verticalSpacer"} />
           <div
             className={
               inputValue === "dark"
@@ -1061,6 +1095,7 @@ export default [
       </div>
     ),
     objectName: "emailAddress",
+    isCompleted: (inputValue) => inputValue && inputValue.trim().length > 0 && /\S+@\S+\.\S+/.test(inputValue),
     questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
         <div
@@ -1113,6 +1148,7 @@ export default [
       </div>
     ),
     objectName: "phoneNumber",
+    isCompleted: (inputValue) => inputValue && inputValue.trim().length > 0,
     questionInput: (inputFunc, inputValue, theme) => (
       <div className={"questionTextInputContainer"}>
         <div
@@ -1165,6 +1201,7 @@ export default [
         Tell us how people can discover you.
       </div>
     ),
+    isCompleted: (inputValue) => true,
     objectName: "socialMedias",
     questionInput: (inputFunc, inputValue, theme) => (
       <div className={"socialMediasOuterContainer"}>
@@ -1209,6 +1246,7 @@ export default [
       </div>
     ),
   },
+  /*
   {
     questionTitle: (theme) => (
       <div
@@ -1262,4 +1300,5 @@ export default [
       </div>
     ),
   },
+  */
 ];

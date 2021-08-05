@@ -237,10 +237,34 @@
     align-self: center;
     margin-bottom: 3vh;
   }
+  .completeAllFields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 70vw;
+    text-align: center;
+  }
+  .exampleContainer {
+    text-align: center;
+    margin-top: 2vh;
+  }
 }
 
 /* The media query for big devices like laptops and desktops */
 @media (min-width: 769px) {
+  .completeAllFields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 30vw;
+    text-align: center;
+  }
   .questionTextInputContainer {
     display: flex;
     flex-direction: row;

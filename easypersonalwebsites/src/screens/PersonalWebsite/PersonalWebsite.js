@@ -11,6 +11,7 @@ import Favicon from "react-favicon";
 import { animateScroll as scroll } from "react-scroll";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EPWLogo from "../../assets/EPW Logo.png";
+import CustomerIDs from '../../config/CustomerIDs';
 
 // Creates the component
 const PersonalWebsite = () => {
@@ -39,15 +40,15 @@ const PersonalWebsite = () => {
         fetchUserData(pathname.substring(1));
       }
     } else {
-      fetchUserData(userDomain.host);
+      fetchUserData(CustomerIDs[userDomain.host]);
     }
     scroll.scrollToTop();
   }, []);
 
   // Fetches the user's data
-  const fetchUserData = async (userDomain) => {
+  const fetchUserData = async (customerID) => {
     // Uncomment below code before release
-    const customerObject = await getCustomerObject(userDomain);
+    const customerObject = await getCustomerObject(customerID);
     setUserData(customerObject);
     setIsDarkMode(customerObject.theme === "dark");
   };
@@ -118,7 +119,7 @@ const PersonalWebsite = () => {
             property="og:image"
             content={userData.profilePictures.profileImage1}
           />
-          <Favicon url={userData.profilePictures.profileImage1} />
+          <Favicon url={userData.profilePictures.profileImage1Blob} />
         </MetaTags>
         <div
           className={

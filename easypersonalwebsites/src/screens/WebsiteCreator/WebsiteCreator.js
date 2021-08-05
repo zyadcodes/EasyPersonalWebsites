@@ -12,7 +12,6 @@ import FadeIn from "react-fade-in";
 import Question from "./Question";
 import QuestionsArray from "../../config/QuestionsArray";
 import CheckoutForm from "./CheckoutForm";
-import { checkInput } from "../../config/checkInput";
 import Modal from "react-awesome-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactLoading from "react-loading";
@@ -53,14 +52,20 @@ const WebsiteCreator = () => {
       tiktok: "",
     },
   });
-  const [isIncompleteVisible, setIsIncompleteVisible] = useState(false);
-  const [fieldsIncomplete, setFieldsIncomplete] = useState([]);
   const [isStarsVisible, setIsStarsVisible] = useState(true);
   const [isRatedVisible, setIsRatedVisible] = useState(false);
+  const [customerID, setCustomerID] = useState("");
+  const [hostingMessageVisible, setHostingMessageVisible] = useState(false);
+  const [affiliateLink, setAffiliateLink] = useState("");
 
   // The useEffect method will start the animation for the logo to disappear and transition up
   useEffect(() => {
     startAnimation();
+    // Sets the affiliate if there is one
+    const currentURL = window.location.pathname;
+    if (currentURL.includes("/affiliateLink=")) {
+      setAffiliateLink(currentURL.substring(15));
+    }
   }, []);
 
   // Starts the animation according to the useEffect method
@@ -71,23 +76,6 @@ const WebsiteCreator = () => {
     setIsHiScreenShowing(true);
     setIsIntroScreenShowing(false);
     logEvent("UserFlowStart", {});
-  };
-
-  // This is going to check to make sure every single field has been correctly filled out, then navigates to
-  // the next screen if they have
-  const checkFields = async () => {
-    const incompleteFields = checkInput(userInput);
-    if (incompleteFields.length > 0) {
-      setFieldsIncomplete(incompleteFields);
-      setIsIncompleteVisible(true);
-    } else {
-      setIsQuestionVisible(false);
-      await sleep(400);
-      setIsCheckoutVisible(true);
-      setIsQuestionsVisible(false);
-      setIsCheckoutDivShowing(true);
-      logEvent("UserFlowComplete", {});
-    }
   };
 
   const openInNewTab = (url) => {
@@ -108,7 +96,7 @@ const WebsiteCreator = () => {
       <Favicon url={EPWLogo} />
     </MetaTags>
   );
-
+  console.log(affiliateLink);
   if (isIntroScreenShowing) {
     // Returns the UI of the intro screen
     return (
@@ -129,61 +117,50 @@ const WebsiteCreator = () => {
     );
   } else if (isHiScreenShowing) {
     return (
-      <FadeIn visible={isHiDivShowing}>
+      <FadeIn
+        className={"hiScreenContainer"}
+        visible={isHiDivShowing}
+        delay={100}
+      >
         {metaTags}
-        <div className={"hiScreenContainer"}>
-          <img src={EPWLogo} className={"smallLogo"} />
-          <Typist
-            className={"typistContainer"}
-            cursor={{ show: false }}
-            startDelay={550}
-          >
-            <a className={"largestText black bold"}>
-              Hi, my name is <span className={"blue"}>Zyad.</span>
-            </a>
-            <br />
-            <br />
-            <br />
-            <Typist.Delay ms={500} />
-            <a className={"largestText black bold"}>
-              I <span className={"blue"}>build websites.</span>
-            </a>
-            <br />
-            <br />
-            <br />
-            <Typist.Delay ms={500} />
-            <a className={"largestText black bold"}>
-              Let me help you build <span className={"blue"}>yours.</span>
-            </a>
-            <br />
-            <br />
-            <br />
-            <Typist.Delay ms={500} />
-            <a className={"largestText black bold"}>
-              It'll take <span className={"blue"}>five</span> minutes.
-            </a>
-          </Typist>
-          <FadeIn delay={9300}>
-            <div className={"letsGoButton"}>
-              <MyButton
-                text={"Let's Go"}
-                isDarkMode={false}
-                onClick={async () => {
-                  setIsHiDivShowing(false);
-                  await sleep(1000);
-                  setIsQuestionsVisible(true);
-                  setIsHiScreenShowing(false);
-                }}
-              />
-            </div>
-          </FadeIn>
-          <FadeIn delay={9300} className={"createdWebsiteMessage"}>
-            <div className={"tinyText gray"}>
-              If you’ve created a website with me and would like to edit or
-              remove your website, please reach out to me at
-              zyadprofessional@gmail.com.
-            </div>
-          </FadeIn>
+        <img src={EPWLogo} className={"smallLogo"} />
+        <div className={"typistContainer"}>
+          <div className={"largestText black bold"}>
+            Hi, my name is <span className={"blue"}>Zyad.</span>
+          </div>
+          <div className={"verticalSpacer"} />
+          <div className={"verticalSpacer"} />
+          <div className={"largestText black bold"}>
+            I <span className={"blue"}>build websites.</span>
+          </div>
+          <div className={"verticalSpacer"} />
+          <div className={"verticalSpacer"} />
+          <div className={"largestText black bold"}>
+            Let me help you build <span className={"blue"}>yours.</span>
+          </div>
+          <div className={"verticalSpacer"} />
+          <div className={"verticalSpacer"} />
+          <div className={"largestText black bold"}>
+            It'll take <span className={"blue"}>five</span> minutes.
+          </div>
+        </div>
+        <div className={"letsGoButton"}>
+          <MyButton
+            text={"Let's Go"}
+            isDarkMode={false}
+            onClick={async () => {
+              setIsHiDivShowing(false);
+              await sleep(1000);
+              setIsQuestionsVisible(true);
+              setIsHiScreenShowing(false);
+            }}
+          />
+        </div>
+        <div className={"createdWebsiteMessage"}>
+          <div className={"tinyText gray"}>
+            If you’ve created a website with me and would like to edit or remove
+            your website, please reach out to me at zyadprofessional@gmail.com.
+          </div>
         </div>
       </FadeIn>
     );
@@ -209,13 +186,25 @@ const WebsiteCreator = () => {
           {QuestionsArray.map((eachQuestion, index) => (
             <div
               onClick={async () => {
-                // Navigates the clicked step
-                if (barIndexSelected !== index) {
-                  setIsQuestionVisible(false);
-                  setBarIndexSelected(index);
-                  await sleep(400);
-                  setQuestionIndexSelected(index);
-                  setIsQuestionVisible(true);
+                // Navigates the clicked step if all steps before it have been completed
+                let canBeNavigatedTo = true;
+                for (let i = 0; i < index; i++) {
+                  if (
+                    !QuestionsArray[i].isCompleted(
+                      userInput[QuestionsArray[i].objectName]
+                    )
+                  ) {
+                    canBeNavigatedTo = false;
+                  }
+                }
+                if (canBeNavigatedTo) {
+                  if (barIndexSelected !== index) {
+                    setIsQuestionVisible(false);
+                    setBarIndexSelected(index);
+                    await sleep(400);
+                    setQuestionIndexSelected(index);
+                    setIsQuestionVisible(true);
+                  }
                 }
               }}
               className={
@@ -245,46 +234,43 @@ const WebsiteCreator = () => {
               setIsQuestionVisible(true);
             }}
             goToPayment={async () => {
-              // Checks to make sure all fields have been filled out and then navigates to the next page
-              checkFields();
+              setHostingMessageVisible(true);
             }}
-            domainName={userInput.domainName ? userInput.domainName : ""}
           />
         </FadeIn>
         <Modal
-          visible={isIncompleteVisible}
+          visible={hostingMessageVisible}
           effect="fadeInUp"
-          onClickAway={() => setIsIncompleteVisible(false)}
+          onClickAway={() => setHostingMessageVisible(false)}
         >
-          <div className={"fieldsModal"}>
+          <div className={"completeAllFields"}>
             <FontAwesomeIcon
-              icon={["fas", "exclamation-triangle"]}
+              icon={["fas", "check"]}
               color={"#0e8afc"}
               size={"3x"}
             />
             <div className={"verticalSpacer"} />
-            <div className={"smallText black"}>
-              You have some incomplete fields
+            <div className={"verticalSpacer"} />
+            <div className={"tinyText black"}>
+              By the way, you'll also get your own domain name, like
+              JohnSmith.com! Once you complete your payment, I'll reach out to
+              you so you can pick from available domains!
             </div>
-            {fieldsIncomplete.map((eachField) => (
-              <div>
-                <div className={"verticalSpacer"} />
-                <div
-                  className={"tinyText blue underline bold clickable"}
-                  key={eachField.index}
-                  onClick={async () => {
-                    setIsIncompleteVisible(false);
-                    setIsQuestionVisible(false);
-                    setBarIndexSelected(eachField.index);
-                    await sleep(400);
-                    setQuestionIndexSelected(eachField.index);
-                    setIsQuestionVisible(true);
-                  }}
-                >
-                  {eachField.name}
-                </div>
-              </div>
-            ))}
+            <div className={"verticalSpacer"} />
+            <div className={"verticalSpacer"} />
+            <MyButton
+              payButton={false}
+              text={"Continue"}
+              onClick={async () => {
+                setHostingMessageVisible(false);
+                setIsQuestionVisible(false);
+                await sleep(400);
+                setIsCheckoutVisible(true);
+                setIsQuestionsVisible(false);
+                setIsCheckoutDivShowing(true);
+                logEvent("UserFlowComplete", {});
+              }}
+            />
           </div>
         </Modal>
       </div>
@@ -306,6 +292,7 @@ const WebsiteCreator = () => {
           </div>
           <CheckoutForm
             userInput={userInput}
+            affiliateLink={affiliateLink}
             processTransaction={async () => {
               setIsCreatingSiteVisible(true);
               setIsCheckoutDivShowing(false);
@@ -314,8 +301,9 @@ const WebsiteCreator = () => {
               setIsCreatingSiteDivVisible(true);
               logEvent("CustomerAcquiredAttempt", {});
             }}
-            completeCheckout={async () => {
+            completeCheckout={async (customerID) => {
               await sleep(2000);
+              setCustomerID(customerID);
               setIsWebsiteDoneVisible(true);
               setIsCreatingSiteDivVisible(false);
               await sleep(400);
@@ -410,12 +398,12 @@ const WebsiteCreator = () => {
                   }
                   onClick={() => {
                     openInNewTab(
-                      "easypersonalwebsites.com/" + userInput.domainName
+                      "https://easypersonalwebsites.com/" + customerID
                     );
                   }}
                 >
                   easypersonalwebsites.com/
-                  {userInput.domainName}
+                  {customerID}
                 </span>
               </div>
               <div className={"verticalSpacer"} />
@@ -428,9 +416,9 @@ const WebsiteCreator = () => {
                     : "smallText black"
                 }
               >
-                We will spend the next 2-3 days connecting your website to
-                {" " + userInput.domainName}. This process is automatic and
-                you’ll be sent an email when your domain is activated.
+                Your plan comes with unlimited domain hosting. I will personally
+                reach out to you within 24 hours to register your domain. Keep
+                checking your email!
               </div>
               <div className={"verticalSpacer"} />
               <div className={"verticalSpacer"} />
@@ -466,7 +454,7 @@ const WebsiteCreator = () => {
                       setIsStarsVisible(false);
                       await sleep(2000);
                       setIsRatedVisible(false);
-                      submitRating(userInput.domainName, newRating);
+                      submitRating(customerID, newRating);
                       logEvent("RatingSubmitted", { newRating });
                     }}
                     size={75}

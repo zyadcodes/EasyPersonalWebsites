@@ -1,13 +1,10 @@
 // This is going to represent the component which will display each question throughout the user experience
-import React, { useState } from "react";
+ dj;j import React, { useState } from "react";
 import "./Question.css";
 import "../../config/fontStyles.css";
 import MyButton from "../../components/MyButton/MyButton";
 import QuestionsArray from "../../config/QuestionsArray";
-import { searchDomain } from "../../config/server";
-import { sleep } from "../../config/sleep";
-import FadeIn from "react-fade-in";
-import ReactLoading from "react-loading";
+import Modal from "react-awesome-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Creates the component
@@ -17,12 +14,15 @@ const Question = ({
   onInputEntered,
   currentUserInputObj,
   goToPayment,
-  domainName,
 }) => {
-  // The state for checking availability of the domain name
-  const [domainNameState, setDomainNameState] = useState(domainName);
-  const [isCheckingDomain, setIsCheckingDomain] = useState(false);
-  const [isDomainAvailable, setIsDomainAvailable] = useState("");
+  // State of error
+  const [isFieldsErrorVisible, setIsFieldsErrorVisible] = useState(false);
+
+  // Opens in a new tab
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
 
   return (
     <div className={"questionContainer"}>
@@ -37,11 +37,6 @@ const Question = ({
       {QuestionsArray[currentIndex].questionInput
         ? QuestionsArray[currentIndex].questionInput(
             (textTyped) => {
-              if (QuestionsArray[currentIndex].objectName === "domainName") {
-                setIsDomainAvailable("");
-                setIsCheckingDomain(false);
-                setDomainNameState(textTyped);
-              }
               onInputEntered(
                 QuestionsArray[currentIndex].objectName,
                 textTyped
@@ -51,101 +46,71 @@ const Question = ({
             currentUserInputObj.theme
           )
         : null}
-      {QuestionsArray[currentIndex].objectName === "domainName" ? (
-        isDomainAvailable === true ? (
-          <FadeIn
-            visible={isDomainAvailable && isCheckingDomain === false}
-            className={"domainStatus"}
-          >
-            <FontAwesomeIcon
-              icon={["fas", "check"]}
-              color={
-                currentUserInputObj.theme === "light" ? "#0e8afc" : "#ccd7f6"
-              }
-              size={"5x"}
-            />
-            <div
-              className={
-                currentUserInputObj.theme === "light"
-                  ? "tinyText black"
-                  : "tinyText lightPurple"
-              }
-            >
-              Great! This domain name is available
-            </div>
-          </FadeIn>
-        ) : isDomainAvailable === false ? (
-          <FadeIn
-            visible={!isDomainAvailable && isCheckingDomain === false}
-            className={"domainStatus"}
-          >
-            <FontAwesomeIcon
-              icon={["fas", "times"]}
-              color={
-                currentUserInputObj.theme === "light" ? "#0e8afc" : "#ccd7f6"
-              }
-              size={"5x"}
-            />
-            <div
-              className={
-                currentUserInputObj.theme === "light"
-                  ? "tinyText black"
-                  : "tinyText lightPurple"
-              }
-            >
-              Sorry, this domain name is unavailable. Please choose a different
-              one.
-            </div>
-          </FadeIn>
-        ) : null
-      ) : null}
-      {QuestionsArray[currentIndex].objectName === "domainName" &&
-      isCheckingDomain ? (
-        <FadeIn visible={isCheckingDomain}>
-          <ReactLoading
-            type={"spin"}
-            color={
-              currentUserInputObj.theme === "light" ? "#0e8afc" : "#64ffda"
-            }
-            height={"10vh"}
-          />
-        </FadeIn>
-      ) : (
-        <MyButton
-          text={
-            QuestionsArray[currentIndex].objectName === "domainName" &&
-            isDomainAvailable
-              ? "Finish"
-              : "Next"
-          }
-          isDarkMode={currentUserInputObj.theme === "dark"}
-          onClick={async () => {
-            if (QuestionsArray[currentIndex].objectName !== "domainName") {
-              onNextClick();
-            } else if (
-              isDomainAvailable === false ||
-              isDomainAvailable === ""
+      <MyButton
+        text={
+          QuestionsArray[currentIndex].objectName === "socialMedias"
+            ? "Finish"
+            : "Next"
+        }
+        isDarkMode={currentUserInputObj.theme === "dark"}
+        onClick={async () => {
+          if (QuestionsArray[currentIndex].objectName !== "socialMedias") {
+            if (
+              QuestionsArray[currentIndex].isCompleted(
+                currentUserInputObj[QuestionsArray[currentIndex].objectName]
+              )
             ) {
-              if (domainNameState.trim().length > 0) {
-                setIsCheckingDomain(true);
-                const result = await searchDomain(domainNameState);
-                await sleep(500);
-                if (result !== -1) {
-                  setIsDomainAvailable(true);
-                } else {
-                  setIsDomainAvailable(false);
-                }
-                setIsCheckingDomain(false);
-              }
+              onNextClick();
             } else {
-              // Moves to payment
-              goToPayment();
-              await sleep(800);
-              setIsDomainAvailable("");
+              setIsFieldsErrorVisible(true);
             }
+          } else {
+            // Moves to payment
+            goToPayment();
+          }
+        }}
+      />
+      <div className={"exampleContainer"}>
+        <div
+          className={"smallText blue italics underline clickable"}
+          onClick={() => {
+            const expiresDate = new Date();
+            expiresDate.setDate(expiresDate.getDate() + 1);
+            openInNewTab(
+              "https://easypersonalwebsites.com/sXvjnA9Mi60qhXy2Gcb1"
+            );
           }}
-        />
-      )}
+        >
+          See an Example
+        </div>
+      </div>
+      <Modal
+        visible={isFieldsErrorVisible}
+        effect="fadeInUp"
+        onClickAway={() => setIsFieldsErrorVisible(false)}
+      >
+        <div className={"completeAllFields"}>
+          <FontAwesomeIcon
+            icon={["fas", "exclamation-triangle"]}
+            color={"#0e8afc"}
+            size={"3x"}
+          />
+          <div className={"verticalSpacer"} />
+          <div className={"verticalSpacer"} />
+          <div className={"smallText black"}>
+            Please complete all of the fields properly
+          </div>
+          <div className={"verticalSpacer"} />
+          <div className={"verticalSpacer"} />
+          <MyButton
+            payButton={false}
+            text={"Ok"}
+            onClick={async () => {
+              setIsFieldsErrorVisible(false);
+            }}
+          />
+        </div>
+      </Modal>
     </div>
   );
 };
