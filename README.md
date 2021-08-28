@@ -1,2 +1,8 @@
 # EasyPersonalWebsites
-This is going to be a project in which users will be able to create a website by just answering a few basic question
+This project was a website that allowed users to quickly create a personal portfolio website just by answering a simple questionnaire. The website would be automatically created under a subdomain, with the option of transferring it to a domain manually.
+
+Tech stack used:
+- React.JS
+- Node.JS
+- Firebase
+- HTML/CSS
