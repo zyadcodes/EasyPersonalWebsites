@@ -14,16 +14,6 @@ import {
 } from "./screens/WebsiteCreator/TermsStrings";
 import TermsPage from "./screens/TermsPage/TermsPage";
 
-// Initializes the web app's connection to Firebase
-firebase.initializeApp({
-  apiKey: "AIzaSyBmwGU-zQ52KTcj-X6GHxd2QRic16V8yOM",
-  authDomain: "easypersonalwebsites.firebaseapp.com",
-  projectId: "easypersonalwebsites",
-  storageBucket: "easypersonalwebsites.appspot.com",
-  messagingSenderId: "456054332203",
-  appId: "1:456054332203:web:ef55947b16e9690963836e",
-  measurementId: "G-6QLC35S1E2",
-});
 firebase.analytics();
 
 // Loads all icons
